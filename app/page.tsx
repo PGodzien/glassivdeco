@@ -25,10 +25,12 @@ const ARROW_YELLOW = (
   </svg>
 )
 
-function scrollTo(href: string) {
+function scrollTo(href: string, delay = 0) {
   const id = href.replace("#", "")
-  const el = document.getElementById(id)
-  if (el) el.scrollIntoView({ behavior: "smooth" })
+  setTimeout(() => {
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: "smooth" })
+  }, delay)
 }
 
 export default function Home() {
@@ -57,7 +59,7 @@ export default function Home() {
 
         {/* NAV */}
         <nav
-          className="relative z-10 flex px-16 justify-between border-b border-white/10"
+          className="relative z-10 flex px-5 lg:px-16 justify-between border-b border-white/10"
           style={{
             fontFamily: "var(--font-unbounded), sans-serif",
             background: "rgba(255,255,255,0.04)",
@@ -104,7 +106,7 @@ export default function Home() {
 
         {/* HERO BODY */}
         <div className="container mx-auto px-4">
-          <div className="relative flex items-center" style={{ minHeight: "720px", paddingTop: "80px", paddingBottom: "80px" }}>
+          <div className="relative flex items-center" style={{ minHeight: "clamp(520px, 90vh, 820px)", paddingTop: "60px", paddingBottom: "60px" }}>
 
 
             {/* Bottle — behind Prism */}
@@ -130,16 +132,16 @@ export default function Home() {
 
             {/* Text content */}
             <div className="relative max-w-6xl mx-auto w-full" style={{ zIndex: 2 }}>
-              <span className="block mb-4 md:absolute top-0 right-0 lg:text-lg font-semibold uppercase tracking-widest" style={{ fontFamily: "var(--font-archivo), sans-serif", color: "#1313ba" }}>
+              <span className="block mb-4 md:absolute top-0 right-0 text-sm lg:text-lg font-semibold uppercase tracking-widest" style={{ fontFamily: "var(--font-archivo), sans-serif", color: "#1313ba" }}>
                 Technologia szkła
               </span>
-              <h2 className="mb-6 md:mb-0 text-2xl sm:text-5xl md:text-6xl text-white uppercase font-heading font-bold">
+              <h2 className="mb-8 md:mb-0 text-3xl sm:text-5xl md:text-6xl text-white uppercase font-heading font-bold" style={{ lineHeight: 1.1 }}>
                 <span>Zdobnictwo</span>
                 <span className="block">szklanych opakowań</span>
                 <span className="block text-right">na poziomie</span>
               </h2>
               <a
-                className="inline-flex items-center py-5 px-10 rounded-full transition-all duration-300"
+                className="inline-flex items-center py-4 px-8 rounded-full transition-all duration-300"
                 href="#technologie"
                 style={{
                   background: "rgba(255,255,255,0.08)",
@@ -166,28 +168,33 @@ export default function Home() {
           <div className="fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50">
             <div onClick={() => setMobileOpen(false)} className="fixed inset-0 bg-gray-800 opacity-25" />
             <nav className="relative flex flex-col py-8 px-10 w-full h-full bg-black border-r overflow-y-auto">
-              <a className="inline-block text-xl text-white font-medium font-heading mb-16 md:mb-32" href="#">
+              <a className="inline-block text-xl text-white font-medium font-heading mb-16" onClick={() => setMobileOpen(false)} style={{ cursor: "pointer" }}>
                 Glassiv Deco
               </a>
-              <ul className="mb-32">
+              <ul className="mb-12">
                 {NAV_LINKS.map((item) => (
                   <li key={item.label} className="mb-10">
-                    <a className="flex items-center cursor-pointer" onClick={e => { e.preventDefault(); setMobileOpen(false); scrollTo(item.href) }}>
+                    <a className="flex items-center cursor-pointer" onClick={e => { e.preventDefault(); setMobileOpen(false); scrollTo(item.href, 300) }}>
                       <span className="mr-3 text-lg text-white">{item.label}</span>
                       {ARROW_YELLOW}
                     </a>
                   </li>
                 ))}
               </ul>
-              <a className="flex mb-8 items-center justify-center py-4 px-6 rounded-full bg-blue-500 hover:bg-blue-600 transform duration-200" href="#">
-                {ARROW_BLACK}
-                <span className="text-sm font-medium uppercase tracking-wider">Zapytaj</span>
-              </a>
-              <a className="flex mb-10 items-center text-white hover:underline" href="#">
-                <span className="mr-2 text-sm">Zaloguj</span>
-                <svg width="16" height="10" viewBox="0 0 16 10" fill="none">
-                  <path d="M12.01 3.95383H0V6.04614H12.01V9.1846L16 4.99998L12.01 0.815369V3.95383Z" fill="#3B82F6" />
+              <a
+                className="inline-flex items-center py-4 px-8 rounded-full transition-all duration-300 mb-8 cursor-pointer"
+                onClick={e => { e.preventDefault(); setMobileOpen(false); scrollTo("#kontakt", 300) }}
+                style={{
+                  background: "rgba(255,255,255,0.08)",
+                  backdropFilter: "blur(16px)",
+                  border: "1px solid rgba(255,255,255,0.18)",
+                  boxShadow: "0 4px 32px rgba(59,130,246,0.18)",
+                }}
+              >
+                <svg className="mr-3" width="16" height="9" viewBox="0 0 16 9" fill="none">
+                  <path d="M12.01 3.16553H0V5.24886H12.01V8.37386L16 4.20719L12.01 0.0405273V3.16553Z" fill="white" />
                 </svg>
+                <span className="text-sm uppercase text-white tracking-widest" style={{ fontFamily: "var(--font-unbounded), sans-serif" }}>Kontakt</span>
               </a>
               <p className="text-sm text-gray-500">Wszelkie prawa zastrzeżone © Glassiv Deco 2026</p>
             </nav>
@@ -200,12 +207,12 @@ export default function Home() {
       <section id="realizacje" className="bg-white py-24">
         <div className="container mx-auto px-6 lg:px-8">
           <p
-            className="uppercase text-black mb-12"
+            className="uppercase text-black mb-8 md:mb-12"
             style={{
               fontFamily: "var(--font-unbounded), sans-serif",
               fontWeight: 700,
-              fontSize: "42px",
-              lineHeight: "46px",
+              fontSize: "clamp(26px, 4vw, 42px)",
+              lineHeight: 1.1,
             }}
           >
             Zapraszamy do<br />
@@ -214,10 +221,11 @@ export default function Home() {
           <div
             className="relative w-full overflow-hidden"
             style={{
-              aspectRatio: "16/7",
+              aspectRatio: "var(--gallery-ratio, 16/7)",
               background: "linear-gradient(160deg, #0a0a0a 0%, #1a1a1a 50%, #0d0d0d 100%)",
             }}
           >
+            <style>{`@media (max-width: 768px) { :root { --gallery-ratio: 4/5; } }`}</style>
             <DepthGallery />
             {/* Scroll hint */}
             <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-3 pointer-events-none" style={{ zIndex: 90 }}>
@@ -255,8 +263,8 @@ export default function Home() {
               style={{
                 fontFamily: "var(--font-unbounded), sans-serif",
                 fontWeight: 700,
-                fontSize: "42px",
-                lineHeight: "46px",
+                fontSize: "clamp(24px, 4vw, 42px)",
+                lineHeight: 1.1,
               }}
             >
               Precyzja i jakość<br />
@@ -313,7 +321,7 @@ export default function Home() {
                 ),
               },
             ].map(({ title, desc, icon }) => (
-              <div key={title} className="p-10 flex flex-col gap-6 feature-card" style={{
+              <div key={title} className="p-6 md:p-10 flex flex-col gap-5 feature-card" style={{
                 background: "rgba(255,255,255,0.04)",
                 backdropFilter: "blur(24px) saturate(160%)",
                 WebkitBackdropFilter: "blur(24px) saturate(160%)",
@@ -352,7 +360,7 @@ export default function Home() {
       {/* ─── TECHNOLOGIES SECTION ─── */}
       <section id="technologie" className="bg-white py-24 overflow-hidden">
         <div className="container mx-auto px-6 lg:px-8">
-          <p className="uppercase text-black mb-16" style={{ fontFamily: "var(--font-unbounded), sans-serif", fontWeight: 700, fontSize: "42px", lineHeight: "46px" }}>
+          <p className="uppercase text-black mb-10 md:mb-16" style={{ fontFamily: "var(--font-unbounded), sans-serif", fontWeight: 700, fontSize: "clamp(26px, 4vw, 42px)", lineHeight: 1.1 }}>
             Nasze<br />technologie
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-black/10">
@@ -388,7 +396,7 @@ export default function Home() {
                 body: "Wprowadziliśmy możliwość wstawienia tzw. okna widokowego, które oprócz walorów estetycznych nadaje oryginalność produktowi. Podkreśla główny element poprzez jego powiększenie dzięki właściwościom optycznym pokrycia.",
               },
             ].map(({ n, title, body }) => (
-              <div key={n} className="bg-white p-10 flex flex-col gap-5 group hover:bg-black transition-colors duration-300">
+              <div key={n} className="bg-white p-6 md:p-10 flex flex-col gap-5 group hover:bg-black transition-colors duration-300">
                 <span className="text-xs font-semibold" style={{ color: "#1313ba", fontFamily: "var(--font-archivo), sans-serif", letterSpacing: "0.15em" }}>{n}</span>
                 <h3 className="text-base font-bold uppercase text-black group-hover:text-white transition-colors duration-300" style={{ fontFamily: "var(--font-unbounded), sans-serif", lineHeight: 1.4, fontSize: "13px" }}>
                   {title}
@@ -416,7 +424,7 @@ export default function Home() {
                   </svg>
                 </span>
                 <h3 className="mb-2 text-xs uppercase tracking-widest" style={{ color: "#1313ba", fontFamily: "var(--font-archivo), sans-serif" }}>Adres</h3>
-                <p className="text-2xl text-white font-bold uppercase" style={{ fontFamily: "var(--font-unbounded), sans-serif", lineHeight: 1.3 }}>
+                <p className="text-xl md:text-2xl text-white font-bold uppercase" style={{ fontFamily: "var(--font-unbounded), sans-serif", lineHeight: 1.3 }}>
                   ul. Zbożowa 10<br />
                   37-500 Jarosław
                 </p>
@@ -429,10 +437,10 @@ export default function Home() {
                   </svg>
                 </span>
                 <h3 className="mb-2 text-xs uppercase tracking-widest" style={{ color: "#1313ba", fontFamily: "var(--font-archivo), sans-serif" }}>Kontakt</h3>
-                <a className="block text-2xl text-white font-bold uppercase hover:text-blue-400 transition-colors" href="mailto:maciej@glassivdeco.com" style={{ fontFamily: "var(--font-unbounded), sans-serif" }}>
+                <a className="block text-lg md:text-2xl text-white font-bold hover:text-blue-400 transition-colors break-all" href="mailto:maciej@glassivdeco.com" style={{ fontFamily: "var(--font-unbounded), sans-serif" }}>
                   maciej@glassivdeco.com
                 </a>
-                <p className="text-2xl text-white font-bold uppercase mt-1" style={{ fontFamily: "var(--font-unbounded), sans-serif" }}>
+                <p className="text-xl md:text-2xl text-white font-bold uppercase mt-2" style={{ fontFamily: "var(--font-unbounded), sans-serif" }}>
                   +48 660 788 125
                 </p>
               </div>
@@ -442,7 +450,7 @@ export default function Home() {
           {/* Right — form */}
           <div className="w-full md:w-1/2 px-4">
             <div className="max-w-md mx-auto py-16 md:py-24">
-              <h2 className="mb-8 text-3xl text-white uppercase font-bold" style={{ fontFamily: "var(--font-unbounded), sans-serif" }}>
+              <h2 className="mb-8 text-2xl md:text-3xl text-white uppercase font-bold" style={{ fontFamily: "var(--font-unbounded), sans-serif" }}>
                 Formularz kontaktowy
               </h2>
               <div className="flex flex-col gap-4">
