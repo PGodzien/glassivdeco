@@ -286,6 +286,13 @@ export default function Home() {
               box-shadow: 0 16px 48px rgba(19,19,186,0.35), 0 2px 8px rgba(0,0,0,0.5);
               border-color: rgba(19,19,186,0.5);
             }
+            .tech-card {
+              transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease;
+            }
+            .tech-card:hover {
+              transform: translateY(-6px);
+              box-shadow: 0 24px 80px rgba(19,19,186,0.1), 0 8px 32px rgba(19,19,186,0.07);
+            }
           `}</style>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
@@ -334,7 +341,7 @@ export default function Home() {
                 ),
               },
             ].map(({ title, desc, icon }) => (
-              <div key={title} className="p-6 md:p-10 flex flex-col gap-5 feature-card" style={{
+              <SpotlightCard key={title} className="p-6 md:p-10 flex flex-col gap-5 feature-card" spotlightColor="rgba(255,255,255,0.06)" style={{
                 background: "rgba(255,255,255,0.04)",
                 backdropFilter: "blur(24px) saturate(160%)",
                 WebkitBackdropFilter: "blur(24px) saturate(160%)",
@@ -349,7 +356,7 @@ export default function Home() {
                 <p className="text-gray-400 text-sm leading-relaxed" style={{ fontFamily: "var(--font-archivo), sans-serif" }}>
                   {desc}
                 </p>
-              </div>
+              </SpotlightCard>
             ))}
           </div>
         </div>
@@ -394,7 +401,7 @@ export default function Home() {
                 body: "Wprowadziliśmy możliwość wstawienia tzw. okna widokowego, które oprócz walorów estetycznych nadaje oryginalność produktowi. Podkreśla główny element poprzez jego powiększenie dzięki właściwościom optycznym pokrycia.",
               },
             ].map(({ n, title, body }) => (
-              <SpotlightCard key={n} className="bg-white p-6 md:p-10 flex flex-col gap-5" spotlightColor="rgba(19,19,186,0.12)">
+              <SpotlightCard key={n} className="bg-white p-6 md:p-10 flex flex-col gap-5 tech-card" spotlightColor="rgba(20,20,30,0.07)">
                 <span className="text-xs font-semibold" style={{ color: "#1313ba", fontFamily: "var(--font-archivo), sans-serif", letterSpacing: "0.15em" }}>{n}</span>
                 <h3 className="text-base font-bold uppercase text-black" style={{ fontFamily: "var(--font-unbounded), sans-serif", lineHeight: 1.4, fontSize: "13px" }}>
                   {title}
