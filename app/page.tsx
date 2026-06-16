@@ -291,7 +291,7 @@ export default function Home() {
             }
             .tech-card:hover {
               transform: translateY(-6px);
-              box-shadow: 0 24px 80px rgba(19,19,186,0.1), 0 8px 32px rgba(19,19,186,0.07);
+              box-shadow: 0 24px 80px rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.05);
             }
           `}</style>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -401,7 +401,7 @@ export default function Home() {
                 body: "Wprowadziliśmy możliwość wstawienia tzw. okna widokowego, które oprócz walorów estetycznych nadaje oryginalność produktowi. Podkreśla główny element poprzez jego powiększenie dzięki właściwościom optycznym pokrycia.",
               },
             ].map(({ n, title, body }) => (
-              <SpotlightCard key={n} className="bg-white p-6 md:p-10 flex flex-col gap-5 tech-card" spotlightColor="rgba(0,100,255,0.08)">
+              <SpotlightCard key={n} className="bg-white p-6 md:p-10 flex flex-col gap-5 tech-card" spotlightColor="rgba(0,180,240,0.12)">
                 <span className="text-xs font-semibold" style={{ color: "#1313ba", fontFamily: "var(--font-archivo), sans-serif", letterSpacing: "0.15em" }}>{n}</span>
                 <h3 className="text-base font-bold uppercase text-black" style={{ fontFamily: "var(--font-unbounded), sans-serif", lineHeight: 1.4, fontSize: "13px" }}>
                   {title}
