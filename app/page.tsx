@@ -111,8 +111,8 @@ export default function Home() {
 
             {/* Bottle — behind Prism */}
             <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center" style={{ zIndex: 0 }}>
-              <div className="relative bottle-float" style={{ width: "80%", height: "100%" }}>
-                <Image src="/bottle.png" alt="" fill className="object-contain object-center" style={{ transform: "scale(1.8)", transformOrigin: "center center" }} priority />
+              <div className="relative bottle-float" style={{ width: "100%", height: "100%" }}>
+                <Image src="/bottle.png" alt="" fill className="object-contain object-center" style={{ transform: "scale(1.9)", transformOrigin: "center center" }} priority />
               </div>
               {/* Shadow */}
               <div
@@ -168,7 +168,8 @@ export default function Home() {
           <div className="fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50">
             <div onClick={() => setMobileOpen(false)} className="fixed inset-0 bg-gray-800 opacity-25" />
             <nav className="relative flex flex-col py-8 px-10 w-full h-full bg-black border-r overflow-y-auto">
-              <a className="inline-block text-xl text-white font-medium font-heading mb-16" onClick={() => setMobileOpen(false)} style={{ cursor: "pointer" }}>
+              <a className="inline-flex items-center gap-3 text-xl text-white font-medium font-heading mb-16" onClick={() => setMobileOpen(false)} style={{ cursor: "pointer" }}>
+                <Image src="/sygnet.svg" alt="" width={36} height={36} />
                 Glassiv Deco
               </a>
               <ul className="mb-12">
