@@ -113,7 +113,7 @@ export default function Home() {
             {/* Bottle — behind Prism */}
             <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center" style={{ zIndex: 0 }}>
               <div className="relative bottle-float" style={{ width: "100%", height: "100%" }}>
-                <Image src="/bottle.png" alt="" fill className="object-contain object-center" style={{ transform: "scale(2.6)", transformOrigin: "center center" }} priority />
+                <Image src="/bottle.png" alt="" fill className="object-contain object-center bottle-img" style={{ transformOrigin: "center center" }} priority />
               </div>
               {/* Shadow */}
               <div
@@ -251,7 +251,7 @@ export default function Home() {
       </section>
 
       {/* ─── ABOUT SECTION ─── */}
-      <section id="o-nas" className="py-20 md:py-32 overflow-hidden relative" style={{ background: "radial-gradient(ellipse at 20% 60%, #001a3a 0%, #00060f 50%, #000 80%)" }}>
+      <section id="o-nas" className="py-20 md:py-32 overflow-hidden relative" style={{ background: "radial-gradient(ellipse at 20% 60%, #001d4a 0%, #000d1f 50%, #000 80%)" }}>
         {/* Sygnet tło */}
         <div className="absolute pointer-events-none select-none" style={{ right: "-8%", bottom: "-10%", width: "55%", opacity: 0.07, zIndex: 0 }}>
           <Image src="/sygnet.svg" alt="" width={900} height={788} style={{ width: "100%", height: "auto" }} />
@@ -341,7 +341,7 @@ export default function Home() {
                 ),
               },
             ].map(({ title, desc, icon }) => (
-              <SpotlightCard key={title} className="p-6 md:p-10 flex flex-col gap-5 feature-card" spotlightColor="rgba(255,255,255,0.06)" style={{
+              <SpotlightCard key={title} className="p-6 md:p-10 flex flex-col gap-5 feature-card" spotlightColor="rgba(0,120,255,0.12)" style={{
                 background: "rgba(255,255,255,0.04)",
                 backdropFilter: "blur(24px) saturate(160%)",
                 WebkitBackdropFilter: "blur(24px) saturate(160%)",
@@ -401,7 +401,7 @@ export default function Home() {
                 body: "Wprowadziliśmy możliwość wstawienia tzw. okna widokowego, które oprócz walorów estetycznych nadaje oryginalność produktowi. Podkreśla główny element poprzez jego powiększenie dzięki właściwościom optycznym pokrycia.",
               },
             ].map(({ n, title, body }) => (
-              <SpotlightCard key={n} className="bg-white p-6 md:p-10 flex flex-col gap-5 tech-card" spotlightColor="rgba(20,20,30,0.07)">
+              <SpotlightCard key={n} className="bg-white p-6 md:p-10 flex flex-col gap-5 tech-card" spotlightColor="rgba(0,100,255,0.08)">
                 <span className="text-xs font-semibold" style={{ color: "#1313ba", fontFamily: "var(--font-archivo), sans-serif", letterSpacing: "0.15em" }}>{n}</span>
                 <h3 className="text-base font-bold uppercase text-black" style={{ fontFamily: "var(--font-unbounded), sans-serif", lineHeight: 1.4, fontSize: "13px" }}>
                   {title}

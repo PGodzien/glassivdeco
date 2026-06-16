@@ -46,6 +46,8 @@ h1, h2, h3, h4, h5, h6 {
 .bottle-float {
   animation: float 5s ease-in-out infinite;
 }
+.bottle-img { transform: scale(2.2); }
+@media (max-width: 768px) { .bottle-img { transform: scale(2.6); } }
 
 .bottle-shadow {
   animation: shadow-float 5s ease-in-out infinite;
