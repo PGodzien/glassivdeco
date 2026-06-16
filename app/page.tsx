@@ -6,6 +6,7 @@ import { useState } from "react"
 
 const DepthGallery = dynamic(() => import("./components/DepthGallery"), { ssr: false })
 const Prism = dynamic(() => import("./components/Prism"), { ssr: false })
+const SpotlightCard = dynamic(() => import("./components/SpotlightCard"), { ssr: false })
 
 const NAV_LINKS = [
   { label: "Realizacje", href: "#realizacje" },
@@ -360,22 +361,6 @@ export default function Home() {
           <p className="uppercase text-black mb-10 md:mb-16" style={{ fontFamily: "var(--font-unbounded), sans-serif", fontWeight: 700, fontSize: "clamp(26px, 4vw, 42px)", lineHeight: 1.1 }}>
             Oferta /<br />Nasze technologie
           </p>
-          <style>{`
-            .tech-card {
-              background-image:
-                linear-gradient(#1313ba, #1313ba),
-                linear-gradient(#1313ba, #1313ba),
-                linear-gradient(#1313ba, #1313ba),
-                linear-gradient(#1313ba, #1313ba);
-              background-size: 0 2px, 2px 0, 0 2px, 2px 0;
-              background-position: left bottom, right bottom, right top, left top;
-              background-repeat: no-repeat;
-              transition: background-size 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            .tech-card:hover {
-              background-size: 100% 2px, 2px 100%, 100% 2px, 2px 100%;
-            }
-          `}</style>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-black/10">
             {[
               {
@@ -409,7 +394,7 @@ export default function Home() {
                 body: "Wprowadziliśmy możliwość wstawienia tzw. okna widokowego, które oprócz walorów estetycznych nadaje oryginalność produktowi. Podkreśla główny element poprzez jego powiększenie dzięki właściwościom optycznym pokrycia.",
               },
             ].map(({ n, title, body }) => (
-              <div key={n} className="bg-white p-6 md:p-10 flex flex-col gap-5 tech-card relative">
+              <SpotlightCard key={n} className="bg-white p-6 md:p-10 flex flex-col gap-5" spotlightColor="rgba(19,19,186,0.12)">
                 <span className="text-xs font-semibold" style={{ color: "#1313ba", fontFamily: "var(--font-archivo), sans-serif", letterSpacing: "0.15em" }}>{n}</span>
                 <h3 className="text-base font-bold uppercase text-black" style={{ fontFamily: "var(--font-unbounded), sans-serif", lineHeight: 1.4, fontSize: "13px" }}>
                   {title}
@@ -417,13 +402,14 @@ export default function Home() {
                 <p className="text-sm text-gray-500 leading-relaxed" style={{ fontFamily: "var(--font-archivo), sans-serif" }}>
                   {body}
                 </p>
-              </div>
+              </SpotlightCard>
             ))}
           </div>
         </div>
       </section>
 
       {/* ─── CONTACT SECTION ─── */}
+
       <section id="kontakt" className="bg-black overflow-hidden border-t border-white/10">
         <div className="flex flex-wrap items-stretch">
 
