@@ -363,12 +363,12 @@ export default function Home() {
       </section>
 
       {/* ─── TECHNOLOGIES SECTION ─── */}
-      <section id="technologie" className="bg-white py-24 overflow-hidden">
+      <section id="technologie" className="bg-gray-50 py-24 overflow-hidden">
         <div className="container mx-auto px-6 lg:px-8">
           <p className="uppercase text-black mb-10 md:mb-16" style={{ fontFamily: "var(--font-unbounded), sans-serif", fontWeight: 700, fontSize: "clamp(26px, 4vw, 42px)", lineHeight: 1.1 }}>
             Oferta /<br />Nasze technologie
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-black/10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               {
                 n: "01",
