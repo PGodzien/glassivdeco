@@ -31,7 +31,7 @@ export default function Home() {
       <section className="bg-black overflow-hidden relative">
 
         {/* Prism — pełne tło sekcji, pod nawem i hero */}
-        <div className="absolute inset-0 pointer-events-none" style={{ mixBlendMode: "screen", zIndex: 0 }}>
+        <div className="absolute inset-0 pointer-events-none" style={{ mixBlendMode: "screen", zIndex: 1 }}>
           <Prism
             animationType="rotate"
             timeScale={0.5}
@@ -94,12 +94,12 @@ export default function Home() {
 
         {/* HERO BODY */}
         <div className="container mx-auto px-4">
-          <div className="relative pt-20 pb-40 md:pb-64">
+          <div className="relative pt-20 pb-56 md:pb-96">
 
 
-            {/* Bottle */}
-            <div className="absolute top-0 right-1/2 mt-10 sm:mt-0 w-full max-w-lg transform translate-x-1/2 pointer-events-none select-none" style={{ zIndex: 1 }}>
-              <div className="relative w-full bottle-float" style={{ height: "560px" }}>
+            {/* Bottle — behind Prism */}
+            <div className="absolute top-0 right-1/2 mt-10 sm:mt-0 w-full max-w-4xl transform translate-x-1/2 pointer-events-none select-none" style={{ zIndex: 0 }}>
+              <div className="relative w-full" style={{ height: "900px" }}>
                 <Image src="/bottle-02.png" alt="" fill className="object-contain object-center" priority />
               </div>
             </div>
