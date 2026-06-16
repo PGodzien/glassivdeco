@@ -274,6 +274,17 @@ export default function Home() {
           </div>
 
           {/* Features — 4 karty */}
+          <style>{`
+            .feature-card {
+              transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease, border-color 0.35s ease;
+              border: 1px solid transparent;
+            }
+            .feature-card:hover {
+              transform: translateY(-6px);
+              box-shadow: 0 16px 48px rgba(19,19,186,0.35), 0 2px 8px rgba(0,0,0,0.5);
+              border-color: rgba(19,19,186,0.5);
+            }
+          `}</style>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               {
@@ -326,22 +337,7 @@ export default function Home() {
                 backdropFilter: "blur(24px) saturate(160%)",
                 WebkitBackdropFilter: "blur(24px) saturate(160%)",
                 boxShadow: "0 2px 24px rgba(0,0,0,0.4)",
-                transition: "transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease, border-color 0.35s ease",
-                border: "1px solid transparent",
-              }}
-              onMouseEnter={e => {
-                const el = e.currentTarget
-                el.style.transform = "translateY(-6px)"
-                el.style.boxShadow = "0 16px 48px rgba(19,19,186,0.35), 0 2px 8px rgba(0,0,0,0.5)"
-                el.style.borderColor = "rgba(19,19,186,0.5)"
-              }}
-              onMouseLeave={e => {
-                const el = e.currentTarget
-                el.style.transform = "translateY(0)"
-                el.style.boxShadow = "0 2px 24px rgba(0,0,0,0.4)"
-                el.style.borderColor = "transparent"
-              }}
-              >
+              }}>
                 <div className="w-12 h-12 flex items-center justify-center" style={{ background: "rgba(19,19,186,0.15)", border: "1px solid rgba(19,19,186,0.4)" }}>
                   {icon}
                 </div>
