@@ -112,7 +112,7 @@ export default function Home() {
             {/* Bottle — behind Prism */}
             <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center" style={{ zIndex: 0 }}>
               <div className="relative bottle-float" style={{ width: "100%", height: "100%" }}>
-                <Image src="/bottle.png" alt="" fill className="object-contain object-center" style={{ transform: "scale(1.9)", transformOrigin: "center center" }} priority />
+                <Image src="/bottle.png" alt="" fill className="object-contain object-center" style={{ transform: "scale(2.6)", transformOrigin: "center center" }} priority />
               </div>
               {/* Shadow */}
               <div
