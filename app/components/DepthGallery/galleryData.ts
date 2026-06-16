@@ -109,9 +109,9 @@ export const galleryPlaneData: GalleryPlaneDefinition[] = [
     accentColor: '#1313ba',
     textureSrc: '',
     position: { x: 0, y: 0 },
-    backgroundColor: '#050510',
-    blob1Color: '#0a0a30',
-    blob2Color: '#050518',
+    backgroundColor: '#060818',
+    blob1Color: '#1313ba',
+    blob2Color: '#0a1040',
     label: {
       word: 'cta',
       spec: '',
