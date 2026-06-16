@@ -7,6 +7,7 @@ export class Label {
   private wordElement: HTMLElement | null = null
   private chipElement: HTMLElement | null = null
   private specElement: HTMLElement | null = null
+  private ctaElement: HTMLElement | null = null
   private activePlaneIndex = -1
 
   private container: HTMLElement
@@ -29,12 +30,56 @@ export class Label {
       <div class="depth-label-right">
         <p class="depth-label-spec"></p>
       </div>
+      <div class="depth-label-cta" style="
+        display: none;
+        position: absolute;
+        inset: 0;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 24px;
+      ">
+        <p style="
+          font-family: var(--font-unbounded), sans-serif;
+          font-size: clamp(24px, 3vw, 48px);
+          font-weight: 700;
+          color: #fff;
+          text-transform: uppercase;
+          letter-spacing: -0.02em;
+          text-align: center;
+          line-height: 1.1;
+        ">Zobacz całą<br/>ofertę</p>
+        <a href="#" style="
+          display: inline-flex;
+          align-items: center;
+          gap: 12px;
+          padding: 18px 40px;
+          border-radius: 9999px;
+          background: rgba(255,255,255,0.08);
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          border: 1px solid rgba(255,255,255,0.18);
+          color: #fff;
+          font-family: var(--font-unbounded), sans-serif;
+          font-size: 13px;
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+          text-decoration: none;
+          transition: background 0.3s;
+        ">
+          <svg width="16" height="9" viewBox="0 0 16 9" fill="none">
+            <path d="M12.01 3.16553H0V5.24886H12.01V8.37386L16 4.20719L12.01 0.0405273V3.16553Z" fill="white"/>
+          </svg>
+          Zobacz ofertę
+        </a>
+      </div>
     `
     this.overlayElement = el
     this.indexElement = el.querySelector('.depth-label-index')
     this.wordElement = el.querySelector('.depth-label-word')
     this.chipElement = el.querySelector('.depth-label-chip')
     this.specElement = el.querySelector('.depth-label-spec')
+    this.ctaElement = el.querySelector('.depth-label-cta')
     this.overlayElement.style.opacity = '0'
     this.container.append(el)
   }
@@ -49,11 +94,26 @@ export class Label {
     const plane = this.gallery.planes[planeIndex]
     if (!plane || this.activePlaneIndex === planeIndex) return
     const label = plane.userData.label || {}
-    if (this.indexElement) this.indexElement.textContent = String(planeIndex + 1).padStart(2, '0')
-    if (this.wordElement) this.wordElement.textContent = label.word || ''
-    if (this.chipElement) (this.chipElement as HTMLElement).style.backgroundColor = plane.userData.accentColor || ''
-    if (this.specElement) this.specElement.textContent = label.spec || ''
-    if (this.overlayElement) this.overlayElement.style.color = label.color || ''
+    const isCTA = label.word === 'cta'
+
+    const leftEl = this.overlayElement?.querySelector('.depth-label-left') as HTMLElement | null
+    const rightEl = this.overlayElement?.querySelector('.depth-label-right') as HTMLElement | null
+
+    if (isCTA) {
+      if (leftEl) leftEl.style.display = 'none'
+      if (rightEl) rightEl.style.display = 'none'
+      if (this.ctaElement) this.ctaElement.style.display = 'flex'
+    } else {
+      if (leftEl) leftEl.style.display = ''
+      if (rightEl) rightEl.style.display = ''
+      if (this.ctaElement) this.ctaElement.style.display = 'none'
+      if (this.indexElement) this.indexElement.textContent = String(planeIndex + 1).padStart(2, '0')
+      if (this.wordElement) this.wordElement.textContent = label.word || ''
+      if (this.chipElement) (this.chipElement as HTMLElement).style.backgroundColor = plane.userData.accentColor || ''
+      if (this.specElement) this.specElement.textContent = label.spec || ''
+      if (this.overlayElement) this.overlayElement.style.color = label.color || ''
+    }
+
     this.activePlaneIndex = planeIndex
   }
 
@@ -76,6 +136,7 @@ export class Label {
     this.wordElement = null
     this.chipElement = null
     this.specElement = null
+    this.ctaElement = null
     this.activePlaneIndex = -1
   }
 }

@@ -119,7 +119,7 @@ export default function Home() {
 
             {/* Text content */}
             <div className="relative max-w-6xl mx-auto lg:mt-20" style={{ zIndex: 2 }}>
-              <span className="block mb-4 md:absolute top-0 right-0 lg:text-lg font-semibold uppercase tracking-widest" style={{ fontFamily: "var(--font-archivo), sans-serif", color: "#2563EB" }}>
+              <span className="block mb-4 md:absolute top-0 right-0 lg:text-lg font-semibold uppercase tracking-widest" style={{ fontFamily: "var(--font-archivo), sans-serif", color: "#1313ba" }}>
                 Technologia szkła
               </span>
               <h2 className="mb-6 md:mb-0 text-2xl sm:text-5xl md:text-6xl text-white uppercase font-heading font-bold">
@@ -191,8 +191,8 @@ export default function Home() {
           <p
             className="uppercase text-black mb-12"
             style={{
-              fontFamily: "var(--font-unbounded), sans-serif",
-              fontWeight: 700,
+              fontFamily: "var(--font-archivo), sans-serif",
+              fontWeight: 300,
               fontSize: "42px",
               lineHeight: "46px",
             }}
@@ -208,6 +208,20 @@ export default function Home() {
             }}
           >
             <DepthGallery />
+          </div>
+
+          {/* 7. slot — CTA */}
+          <div className="flex items-center justify-center mt-8 py-16 border border-black/10">
+            <a
+              href="#"
+              className="inline-flex items-center gap-4 py-5 px-12 rounded-full border border-black/20 hover:bg-black hover:text-white hover:border-black transition-all duration-300"
+              style={{ fontFamily: "var(--font-unbounded), sans-serif", fontSize: "14px", letterSpacing: "0.15em" }}
+            >
+              <svg width="16" height="9" viewBox="0 0 16 9" fill="none">
+                <path d="M12.01 3.16553H0V5.24886H12.01V8.37386L16 4.20719L12.01 0.0405273V3.16553Z" fill="currentColor" />
+              </svg>
+              CAŁA OFERTA
+            </a>
           </div>
         </div>
       </section>

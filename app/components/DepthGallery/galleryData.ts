@@ -104,4 +104,18 @@ export const galleryPlaneData: GalleryPlaneDefinition[] = [
       color: '#c0c0c0',
     },
   },
+  {
+    fallbackColor: '#0a0a14',
+    accentColor: '#1313ba',
+    textureSrc: '',
+    position: { x: 0, y: 0 },
+    backgroundColor: '#050510',
+    blob1Color: '#0a0a30',
+    blob2Color: '#050518',
+    label: {
+      word: 'cta',
+      spec: '',
+      color: '#ffffff',
+    },
+  },
 ]
