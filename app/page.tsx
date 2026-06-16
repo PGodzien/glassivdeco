@@ -191,8 +191,8 @@ export default function Home() {
           <p
             className="uppercase text-black mb-12"
             style={{
-              fontFamily: "var(--font-archivo), sans-serif",
-              fontWeight: 300,
+              fontFamily: "var(--font-unbounded), sans-serif",
+              fontWeight: 700,
               fontSize: "42px",
               lineHeight: "46px",
             }}

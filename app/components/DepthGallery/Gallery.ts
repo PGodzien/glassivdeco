@@ -80,13 +80,14 @@ export class Gallery {
       const aspectRatio = textureImage && textureImage.width > 0 && textureImage.height > 0
         ? textureImage.width / textureImage.height
         : 1
+      const isCTA = plane.label.word === 'cta'
       const planeMaterial = new THREE.MeshBasicMaterial({
         color: texture ? '#ffffff' : plane.fallbackColor,
         map: texture,
         side: THREE.DoubleSide,
         transparent: true,
         depthWrite: false,
-        opacity: index === 0 ? 1 : 0,
+        opacity: isCTA ? 0 : (index === 0 ? 1 : 0),
       })
       const planeMesh = new THREE.Mesh(planeGeometry, planeMaterial)
       planeMesh.userData.basePosition = plane.position
@@ -190,6 +191,7 @@ export class Gallery {
     if (!blendData) return
     const { currentPlaneIndex, nextPlaneIndex, blend } = blendData
     this.planes.forEach((plane, index) => {
+      if (plane.userData.label?.word === 'cta') return
       let targetOpacity = 0
       if (index === currentPlaneIndex) targetOpacity = 1 - blend
       if (index === nextPlaneIndex) targetOpacity = Math.max(targetOpacity, blend)

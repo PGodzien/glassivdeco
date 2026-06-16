@@ -37,11 +37,12 @@ export class Label {
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        gap: 24px;
+        gap: 32px;
+        pointer-events: none;
       ">
         <p style="
           font-family: var(--font-unbounded), sans-serif;
-          font-size: clamp(24px, 3vw, 48px);
+          font-size: 34px;
           font-weight: 700;
           color: #fff;
           text-transform: uppercase;
@@ -53,24 +54,25 @@ export class Label {
           display: inline-flex;
           align-items: center;
           gap: 12px;
-          padding: 18px 40px;
+          padding: 16px 36px;
           border-radius: 9999px;
-          background: rgba(255,255,255,0.08);
-          backdrop-filter: blur(16px);
-          -webkit-backdrop-filter: blur(16px);
-          border: 1px solid rgba(255,255,255,0.18);
+          background: rgba(255,255,255,0.06);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border: 1px solid rgba(255,255,255,0.12);
           color: #fff;
-          font-family: var(--font-unbounded), sans-serif;
-          font-size: 13px;
-          letter-spacing: 0.15em;
+          font-family: var(--font-archivo), sans-serif;
+          font-size: 11px;
+          font-weight: 500;
+          letter-spacing: 0.25em;
           text-transform: uppercase;
           text-decoration: none;
-          transition: background 0.3s;
+          pointer-events: auto;
         ">
-          <svg width="16" height="9" viewBox="0 0 16 9" fill="none">
+          <svg width="14" height="8" viewBox="0 0 16 9" fill="none">
             <path d="M12.01 3.16553H0V5.24886H12.01V8.37386L16 4.20719L12.01 0.0405273V3.16553Z" fill="white"/>
           </svg>
-          Zobacz ofertę
+          Poznaj ofertę
         </a>
       </div>
     `
