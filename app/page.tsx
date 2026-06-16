@@ -362,14 +362,23 @@ export default function Home() {
           </p>
           <style>{`
             .tech-card {
-              transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease, border-color 0.35s ease;
-              border: 1px solid transparent;
+              position: relative;
+              overflow: hidden;
             }
-            .tech-card:hover {
-              transform: translateY(-6px);
-              box-shadow: 0 24px 80px rgba(19,19,186,0.1), 0 8px 32px rgba(19,19,186,0.07), 0 2px 8px rgba(0,0,0,0.04);
-              border-color: rgba(19,19,186,0.2);
-              z-index: 1;
+            .tech-card::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: 2px;
+              background: #1313ba;
+              transform: scaleX(0);
+              transform-origin: left;
+              transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .tech-card:hover::after {
+              transform: scaleX(1);
             }
           `}</style>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-black/10">
