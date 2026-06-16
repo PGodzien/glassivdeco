@@ -30,15 +30,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(-18deg); }
-  50%       { transform: translateY(-28px) rotate(-18deg); }
+  0%, 100% { transform: rotate(22deg) translateY(0px); }
+  50%       { transform: rotate(22deg) translateY(-12px); }
 }
 
-@keyframes float-ring {
-  0%, 100% { transform: translateY(0px) rotate(12deg); }
-  50%       { transform: translateY(-14px) rotate(12deg); }
+@keyframes shadow-float {
+  0%, 100% { transform: translateX(-50%) scaleX(1) translateY(0px); opacity: 0.35; }
+  50%       { transform: translateX(-50%) scaleX(0.88) translateY(6px); opacity: 0.22; }
 }
 
 .bottle-float {
-  animation: float 4s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
+}
+
+.bottle-shadow {
+  animation: shadow-float 5s ease-in-out infinite;
 }

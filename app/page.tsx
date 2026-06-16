@@ -34,14 +34,14 @@ export default function Home() {
         <div className="absolute inset-0 pointer-events-none" style={{ mixBlendMode: "screen", zIndex: 1 }}>
           <Prism
             animationType="rotate"
-            timeScale={0.5}
+            timeScale={0.15}
             height={3.5}
             baseWidth={5.5}
-            scale={3.6}
+            scale={5}
             hueShift={0}
-            colorFrequency={1}
+            colorFrequency={0.6}
             noise={0}
-            glow={1}
+            glow={0.4}
           />
         </div>
 
@@ -50,9 +50,10 @@ export default function Home() {
           className="relative z-10 flex px-16 justify-between border-b border-white/10"
           style={{
             fontFamily: "var(--font-unbounded), sans-serif",
-            background: "rgba(0,0,0,0.35)",
-            backdropFilter: "blur(18px)",
-            WebkitBackdropFilter: "blur(18px)",
+            background: "rgba(255,255,255,0.04)",
+            backdropFilter: "blur(20px) saturate(180%)",
+            WebkitBackdropFilter: "blur(20px) saturate(180%)",
+            borderBottom: "1px solid rgba(255,255,255,0.12)",
           }}
         >
           {/* Logo */}
@@ -76,7 +77,7 @@ export default function Home() {
             <ul className="flex justify-center">
               {NAV_LINKS.map((item, i) => (
                 <li key={item} className={i < NAV_LINKS.length - 1 ? "mr-12" : ""}>
-                  <a className="text-gray-500 hover:text-gray-400" href="#">{item}</a>
+                  <a className="text-white/70 hover:text-white transition-colors" href="#">{item}</a>
                 </li>
               ))}
             </ul>
@@ -85,8 +86,6 @@ export default function Home() {
           {/* Right actions */}
           <div className="hidden lg:flex items-center pl-16 py-8 border-l border-white/20">
             <div className="flex items-center">
-              <a className="inline-block text-sm text-white hover:underline font-heading" href="#">Zaloguj</a>
-              <span className="mx-2 text-white">/</span>
               <a className="inline-block text-sm text-white hover:underline font-heading" href="#">Kontakt</a>
             </div>
           </div>
@@ -98,15 +97,29 @@ export default function Home() {
 
 
             {/* Bottle — behind Prism */}
-            <div className="absolute top-0 right-1/2 mt-10 sm:mt-0 w-full max-w-4xl transform translate-x-1/2 pointer-events-none select-none" style={{ zIndex: 0 }}>
-              <div className="relative w-full" style={{ height: "900px" }}>
-                <Image src="/bottle-02.png" alt="" fill className="object-contain object-center" priority />
+            <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center" style={{ zIndex: 0 }}>
+              <div className="relative bottle-float" style={{ width: "80%", height: "100%" }}>
+                <Image src="/bottle.png" alt="" fill className="object-contain object-center" style={{ transform: "scale(1.8)", transformOrigin: "center center" }} priority />
               </div>
+              {/* Shadow */}
+              <div
+                className="bottle-shadow"
+                style={{
+                  position: "absolute",
+                  bottom: "32px",
+                  left: "50%",
+                  width: "38%",
+                  height: "24px",
+                  background: "radial-gradient(ellipse at center, rgba(100,160,255,0.5) 0%, transparent 70%)",
+                  filter: "blur(10px)",
+                  transformOrigin: "center",
+                }}
+              />
             </div>
 
             {/* Text content */}
             <div className="relative max-w-6xl mx-auto lg:mt-20" style={{ zIndex: 2 }}>
-              <span className="block mb-4 md:absolute top-0 right-0 text-gray-500 lg:text-lg font-semibold uppercase tracking-widest" style={{ fontFamily: "var(--font-archivo), sans-serif" }}>
+              <span className="block mb-4 md:absolute top-0 right-0 lg:text-lg font-semibold uppercase tracking-widest" style={{ fontFamily: "var(--font-archivo), sans-serif", color: "#2563EB" }}>
                 Technologia szkła
               </span>
               <h2 className="mb-6 md:mb-0 text-2xl sm:text-5xl md:text-6xl text-white uppercase font-heading font-bold">
