@@ -25,6 +25,12 @@ const ARROW_YELLOW = (
   </svg>
 )
 
+function scrollTo(href: string) {
+  const id = href.replace("#", "")
+  const el = document.getElementById(id)
+  if (el) el.scrollIntoView({ behavior: "smooth" })
+}
+
 export default function Home() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -82,7 +88,7 @@ export default function Home() {
             <ul className="flex justify-center">
               {NAV_LINKS.map((item, i) => (
                 <li key={item.label} className={i < NAV_LINKS.length - 1 ? "mr-12" : ""}>
-                  <a className="text-white/70 hover:text-white transition-colors" href={item.href}>{item.label}</a>
+                  <a className="text-white/70 hover:text-white transition-colors cursor-pointer" onClick={e => { e.preventDefault(); scrollTo(item.href) }}>{item.label}</a>
                 </li>
               ))}
             </ul>
@@ -91,7 +97,7 @@ export default function Home() {
           {/* Right actions */}
           <div className="hidden lg:flex items-center pl-16 py-8 border-l border-white/20">
             <div className="flex items-center">
-              <a className="inline-block text-sm text-white hover:underline font-heading" href="#kontakt">Kontakt</a>
+              <a className="inline-block text-sm text-white hover:underline font-heading cursor-pointer" onClick={e => { e.preventDefault(); scrollTo("#kontakt") }}>Kontakt</a>
             </div>
           </div>
         </nav>
@@ -134,7 +140,7 @@ export default function Home() {
               </h2>
               <a
                 className="inline-flex items-center py-5 px-10 rounded-full transition-all duration-300"
-                href="#"
+                href="#technologie"
                 style={{
                   background: "rgba(255,255,255,0.08)",
                   backdropFilter: "blur(16px)",
@@ -166,7 +172,7 @@ export default function Home() {
               <ul className="mb-32">
                 {NAV_LINKS.map((item) => (
                   <li key={item.label} className="mb-10">
-                    <a className="flex items-center" href={item.href}>
+                    <a className="flex items-center cursor-pointer" onClick={e => { e.preventDefault(); setMobileOpen(false); scrollTo(item.href) }}>
                       <span className="mr-3 text-lg text-white">{item.label}</span>
                       {ARROW_YELLOW}
                     </a>
@@ -510,7 +516,7 @@ export default function Home() {
               <ul className="flex flex-wrap gap-8">
                 {NAV_LINKS.map(item => (
                   <li key={item.label}>
-                    <a className="text-sm text-white/60 uppercase hover:text-white transition-colors font-heading" href={item.href} style={{ fontFamily: "var(--font-unbounded), sans-serif", fontSize: "11px", letterSpacing: "0.1em" }}>
+                    <a className="text-sm text-white/60 uppercase hover:text-white transition-colors font-heading cursor-pointer" onClick={e => { e.preventDefault(); scrollTo(item.href) }} style={{ fontFamily: "var(--font-unbounded), sans-serif", fontSize: "11px", letterSpacing: "0.1em" }}>
                       {item.label}
                     </a>
                   </li>

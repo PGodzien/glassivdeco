@@ -49,8 +49,8 @@ export class Label {
           letter-spacing: -0.02em;
           text-align: center;
           line-height: 1.1;
-        ">Zobacz całą<br/>ofertę</p>
-        <a href="#" style="
+        ">Zapraszamy do<br/>kontaktu z nami</p>
+        <a href="#kontakt" style="
           display: inline-flex;
           align-items: center;
           gap: 12px;
@@ -72,7 +72,7 @@ export class Label {
           <svg width="14" height="8" viewBox="0 0 16 9" fill="none">
             <path d="M12.01 3.16553H0V5.24886H12.01V8.37386L16 4.20719L12.01 0.0405273V3.16553Z" fill="white"/>
           </svg>
-          Poznaj ofertę
+          Skontaktuj się
         </a>
       </div>
     `
