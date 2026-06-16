@@ -362,23 +362,18 @@ export default function Home() {
           </p>
           <style>{`
             .tech-card {
-              position: relative;
-              overflow: hidden;
+              background-image:
+                linear-gradient(#1313ba, #1313ba),
+                linear-gradient(#1313ba, #1313ba),
+                linear-gradient(#1313ba, #1313ba),
+                linear-gradient(#1313ba, #1313ba);
+              background-size: 0 2px, 2px 0, 0 2px, 2px 0;
+              background-position: left bottom, right bottom, right top, left top;
+              background-repeat: no-repeat;
+              transition: background-size 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             }
-            .tech-card::after {
-              content: '';
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              width: 100%;
-              height: 2px;
-              background: #1313ba;
-              transform: scaleX(0);
-              transform-origin: left;
-              transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            .tech-card:hover::after {
-              transform: scaleX(1);
+            .tech-card:hover {
+              background-size: 100% 2px, 2px 100%, 100% 2px, 2px 100%;
             }
           `}</style>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-black/10">
