@@ -357,8 +357,20 @@ export default function Home() {
       <section id="technologie" className="bg-white py-24 overflow-hidden">
         <div className="container mx-auto px-6 lg:px-8">
           <p className="uppercase text-black mb-10 md:mb-16" style={{ fontFamily: "var(--font-unbounded), sans-serif", fontWeight: 700, fontSize: "clamp(26px, 4vw, 42px)", lineHeight: 1.1 }}>
-            Nasze<br />technologie
+            Oferta /<br />Nasze technologie
           </p>
+          <style>{`
+            .tech-card {
+              transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease, border-color 0.35s ease;
+              border: 1px solid transparent;
+            }
+            .tech-card:hover {
+              transform: translateY(-6px);
+              box-shadow: 0 24px 80px rgba(19,19,186,0.1), 0 8px 32px rgba(19,19,186,0.07), 0 2px 8px rgba(0,0,0,0.04);
+              border-color: rgba(19,19,186,0.2);
+              z-index: 1;
+            }
+          `}</style>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-black/10">
             {[
               {
@@ -392,12 +404,12 @@ export default function Home() {
                 body: "Wprowadziliśmy możliwość wstawienia tzw. okna widokowego, które oprócz walorów estetycznych nadaje oryginalność produktowi. Podkreśla główny element poprzez jego powiększenie dzięki właściwościom optycznym pokrycia.",
               },
             ].map(({ n, title, body }) => (
-              <div key={n} className="bg-white p-6 md:p-10 flex flex-col gap-5 group hover:bg-black transition-colors duration-300">
+              <div key={n} className="bg-white p-6 md:p-10 flex flex-col gap-5 tech-card relative">
                 <span className="text-xs font-semibold" style={{ color: "#1313ba", fontFamily: "var(--font-archivo), sans-serif", letterSpacing: "0.15em" }}>{n}</span>
-                <h3 className="text-base font-bold uppercase text-black group-hover:text-white transition-colors duration-300" style={{ fontFamily: "var(--font-unbounded), sans-serif", lineHeight: 1.4, fontSize: "13px" }}>
+                <h3 className="text-base font-bold uppercase text-black" style={{ fontFamily: "var(--font-unbounded), sans-serif", lineHeight: 1.4, fontSize: "13px" }}>
                   {title}
                 </h3>
-                <p className="text-sm text-gray-500 group-hover:text-gray-400 leading-relaxed transition-colors duration-300" style={{ fontFamily: "var(--font-archivo), sans-serif" }}>
+                <p className="text-sm text-gray-500 leading-relaxed" style={{ fontFamily: "var(--font-archivo), sans-serif" }}>
                   {body}
                 </p>
               </div>
