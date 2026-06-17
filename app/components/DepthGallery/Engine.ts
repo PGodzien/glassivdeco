@@ -19,8 +19,6 @@ export class Engine {
   private isRunning = false
   private isInitialized = false
   private isDisposed = false
-  private isVisible = true
-  private intersectionObserver: IntersectionObserver | null = null
 
   private container: HTMLElement
 
@@ -75,18 +73,6 @@ export class Engine {
     window.addEventListener('resize', this.onResize)
     this.scroll.bindEvents()
 
-    this.intersectionObserver = new IntersectionObserver(
-      (entries) => {
-        this.isVisible = entries[0]?.isIntersecting ?? true
-        if (this.isVisible && this.isInitialized && !this.isRunning && !this.isDisposed) {
-          this.isRunning = true
-          this.loop()
-        }
-      },
-      { threshold: 0 }
-    )
-    this.intersectionObserver.observe(this.container)
-
     this.isInitialized = true
     this.start()
   }
@@ -99,10 +85,6 @@ export class Engine {
 
   private loop = () => {
     if (!this.isRunning) return
-    if (!this.isVisible) {
-      this.isRunning = false
-      return
-    }
     this.animationFrameId = requestAnimationFrame(this.loop)
     const time = performance.now()
     this.scroll.update()
@@ -154,7 +136,6 @@ export class Engine {
     this.isDisposed = true
     this.isRunning = false
     if (this.animationFrameId !== null) cancelAnimationFrame(this.animationFrameId)
-    this.intersectionObserver?.disconnect()
     window.removeEventListener('resize', this.onResize)
     this.scroll.dispose()
     this.trailController.dispose()
