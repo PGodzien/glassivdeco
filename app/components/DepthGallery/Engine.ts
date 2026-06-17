@@ -19,23 +19,25 @@ export class Engine {
   private isRunning = false
   private isInitialized = false
   private isDisposed = false
+  private isVisible = true
+  private intersectionObserver: IntersectionObserver | null = null
 
   private container: HTMLElement
 
-  constructor(canvas: HTMLCanvasElement, container?: HTMLElement) {
-    this.container = container ?? document.body
+  constructor(canvas: HTMLCanvasElement, stickyEl: HTMLElement, scrollerEl: HTMLElement) {
+    this.container = stickyEl
     this.canvas = canvas
     this.camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100)
     this.camera.position.set(0, 0, 6)
     this.renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true })
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2))
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5))
     this.renderer.outputColorSpace = THREE.SRGBColorSpace
     this.renderer.autoClear = false
     this.gallery = new Gallery()
     this.background = new Background()
     this.label = new Label(this.gallery, this.container)
     this.trailController = new TrailController({ gallery: this.gallery })
-    this.scroll = new Scroll(this.camera, this.gallery, this.canvas)
+    this.scroll = new Scroll(this.camera, this.gallery, scrollerEl, stickyEl)
   }
 
   async init() {
@@ -57,8 +59,13 @@ export class Engine {
       })
     )
 
+    if (this.isDisposed) return
+
     this.gallery.setPreloadedTextures(loadedTextures)
     await this.gallery.init(this.scene)
+
+    if (this.isDisposed) return
+
     this.label.init()
     this.background.init()
     this.trailController.init(this.scene, this.camera)
@@ -67,6 +74,18 @@ export class Engine {
     this.resize()
     window.addEventListener('resize', this.onResize)
     this.scroll.bindEvents()
+
+    this.intersectionObserver = new IntersectionObserver(
+      (entries) => {
+        this.isVisible = entries[0]?.isIntersecting ?? true
+        if (this.isVisible && this.isInitialized && !this.isRunning && !this.isDisposed) {
+          this.isRunning = true
+          this.loop()
+        }
+      },
+      { threshold: 0 }
+    )
+    this.intersectionObserver.observe(this.container)
 
     this.isInitialized = true
     this.start()
@@ -80,6 +99,10 @@ export class Engine {
 
   private loop = () => {
     if (!this.isRunning) return
+    if (!this.isVisible) {
+      this.isRunning = false
+      return
+    }
     this.animationFrameId = requestAnimationFrame(this.loop)
     const time = performance.now()
     this.scroll.update()
@@ -131,6 +154,7 @@ export class Engine {
     this.isDisposed = true
     this.isRunning = false
     if (this.animationFrameId !== null) cancelAnimationFrame(this.animationFrameId)
+    this.intersectionObserver?.disconnect()
     window.removeEventListener('resize', this.onResize)
     this.scroll.dispose()
     this.trailController.dispose()

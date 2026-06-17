@@ -20,30 +20,38 @@ export class Scroll {
   private firstPlaneViewOffset = 5
   private lastPlaneViewOffset = 5
   private cameraStartZ = 0
-  private touchY = 0
   private isInitialized = false
 
-  private onWheel = (event: WheelEvent) => {
-    event.preventDefault()
-    this.scrollTarget += this.normalizeWheelDelta(event)
-  }
-  private onTouchStart = (event: TouchEvent) => {
-    this.touchY = event.touches[0]?.clientY ?? 0
-  }
-  private onTouchMove = (event: TouchEvent) => {
-    event.preventDefault()
-    const currentTouchY = event.touches[0]?.clientY ?? this.touchY
-    const deltaY = this.touchY - currentTouchY
-    this.scrollTarget += deltaY * 1.8
-    this.touchY = currentTouchY
+  private scrollerEl: HTMLElement
+  private stickyEl: HTMLElement
+  private scrollerTop = 0
+  private scrollTravel = 0
+
+  private cacheLayout = () => {
+    this.scrollerTop = this.scrollerEl.getBoundingClientRect().top + window.scrollY
+    this.scrollTravel = this.scrollerEl.offsetHeight - this.stickyEl.offsetHeight
   }
 
-  private target: HTMLElement | Window
+  // Last 15% of scroll travel holds at final slide (gives it time to settle before next section)
+  private readonly holdFraction = 0.15
 
-  constructor(camera: THREE.PerspectiveCamera, gallery: Gallery, target?: HTMLElement) {
+  private onScroll = () => {
+    if (this.scrollTravel <= 0) return
+    const rawProgress = THREE.MathUtils.clamp(
+      (window.scrollY - this.scrollerTop) / this.scrollTravel,
+      0, 1
+    )
+    const animProgress = THREE.MathUtils.clamp(rawProgress / (1 - this.holdFraction), 0, 1)
+    const minimumScroll = this.scrollFromCameraZ(this.maxCameraZ)
+    const maximumScroll = this.scrollFromCameraZ(this.minCameraZ)
+    this.scrollTarget = minimumScroll + animProgress * (maximumScroll - minimumScroll)
+  }
+
+  constructor(camera: THREE.PerspectiveCamera, gallery: Gallery, scrollerEl: HTMLElement, stickyEl: HTMLElement) {
     this.camera = camera
     this.gallery = gallery
-    this.target = target ?? window
+    this.scrollerEl = scrollerEl
+    this.stickyEl = stickyEl
   }
 
   init() {
@@ -60,9 +68,9 @@ export class Scroll {
   }
 
   bindEvents() {
-    this.target.addEventListener('wheel', this.onWheel as EventListener, { passive: false })
-    this.target.addEventListener('touchstart', this.onTouchStart as EventListener, { passive: true })
-    this.target.addEventListener('touchmove', this.onTouchMove as EventListener, { passive: false })
+    this.cacheLayout()
+    window.addEventListener('scroll', this.onScroll, { passive: true })
+    window.addEventListener('resize', this.cacheLayout, { passive: true })
   }
 
   private updateCameraBounds() {
@@ -79,12 +87,6 @@ export class Scroll {
   private scrollFromCameraZ(cameraZ: number) {
     if (this.scrollToWorldFactor === 0) return 0
     return (this.cameraStartZ - cameraZ) / this.scrollToWorldFactor
-  }
-
-  private normalizeWheelDelta(event: WheelEvent) {
-    if (event.deltaMode === 1) return event.deltaY * 16
-    if (event.deltaMode === 2) return event.deltaY * window.innerHeight
-    return event.deltaY
   }
 
   private updateVelocity() {
@@ -107,8 +109,7 @@ export class Scroll {
   }
 
   dispose() {
-    this.target.removeEventListener('wheel', this.onWheel as EventListener)
-    this.target.removeEventListener('touchstart', this.onTouchStart as EventListener)
-    this.target.removeEventListener('touchmove', this.onTouchMove as EventListener)
+    window.removeEventListener('scroll', this.onScroll)
+    window.removeEventListener('resize', this.cacheLayout)
   }
 }

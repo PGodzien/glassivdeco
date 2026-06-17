@@ -206,48 +206,8 @@ export default function Home() {
       </section>
 
       {/* ─── GALLERY SECTION ─── */}
-      <section id="realizacje" className="bg-white py-24">
-        <div className="container mx-auto px-6 lg:px-8">
-          <p
-            className="uppercase text-black mb-8 md:mb-12"
-            style={{
-              fontFamily: "var(--font-unbounded), sans-serif",
-              fontWeight: 700,
-              fontSize: "clamp(26px, 4vw, 42px)",
-              lineHeight: 1.1,
-            }}
-          >
-            Zapraszamy do<br />
-            świata szkła
-          </p>
-          <div
-            className="relative w-full overflow-hidden"
-            style={{
-              aspectRatio: "var(--gallery-ratio, 16/7)",
-              background: "linear-gradient(160deg, #0a0a0a 0%, #1a1a1a 50%, #0d0d0d 100%)",
-            }}
-          >
-            <style>{`@media (max-width: 768px) { :root { --gallery-ratio: 4/5; } }`}</style>
-            <DepthGallery />
-            {/* Scroll hint */}
-            <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-3 pointer-events-none" style={{ zIndex: 90 }}>
-              {/* Mouse icon */}
-              <svg width="18" height="26" viewBox="0 0 18 26" fill="none" style={{ opacity: 0.45 }}>
-                <rect x="1" y="1" width="16" height="24" rx="8" stroke="white" strokeWidth="1.2"/>
-                <rect x="8" y="5" width="2" height="5" rx="1" fill="white"/>
-              </svg>
-              <span style={{
-                fontFamily: "var(--font-archivo), sans-serif",
-                fontSize: "10px",
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.4)",
-              }}>
-                scroll
-              </span>
-            </div>
-          </div>
-        </div>
+      <section id="realizacje" className="bg-black">
+        <DepthGallery />
       </section>
 
       {/* ─── ABOUT SECTION ─── */}
