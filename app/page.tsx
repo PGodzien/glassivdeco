@@ -71,9 +71,8 @@ export default function Home() {
         >
           {/* Logo */}
           <div className="pr-14 py-8 lg:border-r border-white/20">
-            <a className="inline-flex items-center gap-3 text-xl text-white font-medium font-heading" href="#">
-              <Image src="/sygnet.svg" alt="" width={44} height={44} />
-              Glassiv Deco
+            <a className="inline-flex items-center" href="#">
+              <Image src="/logoglassivdeco-white.svg" alt="Glassiv Deco" width={140} height={70} />
             </a>
           </div>
 
@@ -169,9 +168,8 @@ export default function Home() {
           <div className="fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50">
             <div onClick={() => setMobileOpen(false)} className="fixed inset-0 bg-gray-800 opacity-25" />
             <nav className="relative flex flex-col py-8 px-10 w-full h-full bg-black border-r overflow-y-auto">
-              <a className="inline-flex items-center gap-3 text-xl text-white font-medium font-heading mb-16" onClick={() => setMobileOpen(false)} style={{ cursor: "pointer" }}>
-                <Image src="/sygnet.svg" alt="" width={36} height={36} />
-                Glassiv Deco
+              <a className="inline-flex items-center mb-16" onClick={() => setMobileOpen(false)} style={{ cursor: "pointer" }}>
+                <Image src="/logoglassivdeco-white.svg" alt="Glassiv Deco" width={112} height={56} />
               </a>
               <ul className="mb-12">
                 {NAV_LINKS.map((item) => (
@@ -481,9 +479,8 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap items-center justify-between mb-6">
             <div className="w-full md:w-auto mb-6 md:mb-0">
-              <a className="inline-flex items-center gap-3 text-xl text-white font-medium font-heading" href="#">
-                <Image src="/sygnet.svg" alt="" width={32} height={32} />
-                Glassiv Deco
+              <a className="inline-flex items-center" href="#">
+                <Image src="/logoglassivdeco-white.svg" alt="Glassiv Deco" width={100} height={50} />
               </a>
             </div>
             <div className="w-full md:w-auto">
