@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
-import { Unbounded, Archivo } from "next/font/google";
+import { Syncopate, Inter } from "next/font/google";
 import "./globals.css";
 
-const unbounded = Unbounded({
-  variable: "--font-unbounded",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+const syncopate = Syncopate({
+  variable: "--font-syncopate",
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "700"],
 });
 
-const archivo = Archivo({
-  variable: "--font-archivo",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin", "latin-ext"],
 });
 
 export const metadata: Metadata = {
@@ -25,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pl" className={`${unbounded.variable} ${archivo.variable} h-full antialiased`}>
+    <html lang="pl" className={`${syncopate.variable} ${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

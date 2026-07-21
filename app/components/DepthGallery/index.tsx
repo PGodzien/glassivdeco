@@ -72,8 +72,8 @@ export default function DepthGallery() {
             <p
               className="uppercase text-white"
               style={{
-                fontFamily: "var(--font-unbounded), sans-serif",
-                fontWeight: 700,
+                fontFamily: "var(--font-syncopate), sans-serif",
+                fontWeight: 800,
                 fontSize: "clamp(22px, 3.5vw, 42px)",
                 lineHeight: 1.1,
               }}
@@ -89,7 +89,7 @@ export default function DepthGallery() {
               <rect x="1" y="1" width="16" height="24" rx="8" stroke="white" strokeWidth="1.2"/>
               <rect x="8" y="5" width="2" height="5" rx="1" fill="white"/>
             </svg>
-            <span style={{ fontFamily: "var(--font-archivo), sans-serif", fontSize: "10px", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)" }}>
+            <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "10px", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)" }}>
               scroll
             </span>
           </div>

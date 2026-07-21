@@ -41,9 +41,9 @@ export class Label {
         pointer-events: none;
       ">
         <p style="
-          font-family: var(--font-unbounded), sans-serif;
+          font-family: var(--font-syncopate), sans-serif;
           font-size: 34px;
-          font-weight: 700;
+          font-weight: 800;
           color: #fff;
           text-transform: uppercase;
           letter-spacing: -0.02em;
@@ -61,7 +61,7 @@ export class Label {
           -webkit-backdrop-filter: blur(20px);
           border: 1px solid rgba(255,255,255,0.12);
           color: #fff;
-          font-family: var(--font-archivo), sans-serif;
+          font-family: var(--font-inter), sans-serif;
           font-size: 11px;
           font-weight: 500;
           letter-spacing: 0.25em;

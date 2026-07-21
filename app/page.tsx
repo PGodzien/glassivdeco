@@ -62,7 +62,7 @@ export default function Home() {
         <nav
           className="relative z-10 flex px-5 lg:px-16 justify-between border-b border-white/10"
           style={{
-            fontFamily: "var(--font-unbounded), sans-serif",
+            fontFamily: "var(--font-syncopate), sans-serif",
             background: "rgba(255,255,255,0.04)",
             backdropFilter: "blur(20px) saturate(180%)",
             WebkitBackdropFilter: "blur(20px) saturate(180%)",
@@ -132,10 +132,10 @@ export default function Home() {
 
             {/* Text content */}
             <div className="relative max-w-6xl mx-auto w-full" style={{ zIndex: 2 }}>
-              <span className="block mb-4 md:absolute top-0 right-0 text-sm lg:text-lg font-semibold uppercase tracking-widest" style={{ fontFamily: "var(--font-archivo), sans-serif", color: "#1313ba" }}>
+              <span className="block mb-4 md:absolute top-0 right-0 text-sm lg:text-lg font-semibold uppercase tracking-widest" style={{ fontFamily: "var(--font-inter), sans-serif", color: "#1313ba" }}>
                 Technologia szkła
               </span>
-              <h2 className="mb-8 md:mb-0 text-3xl sm:text-5xl md:text-6xl text-white uppercase font-heading font-bold" style={{ lineHeight: 1.1 }}>
+              <h2 className="mb-8 md:mb-0 text-3xl sm:text-5xl md:text-6xl text-white font-heading font-extrabold" style={{ lineHeight: 1.1 }}>
                 <span>Zdobnictwo</span>
                 <span className="block">szklanych opakowań</span>
                 <span className="block text-right">na poziomie</span>
@@ -194,7 +194,7 @@ export default function Home() {
                 <svg className="mr-3" width="16" height="9" viewBox="0 0 16 9" fill="none">
                   <path d="M12.01 3.16553H0V5.24886H12.01V8.37386L16 4.20719L12.01 0.0405273V3.16553Z" fill="white" />
                 </svg>
-                <span className="text-sm uppercase text-white tracking-widest" style={{ fontFamily: "var(--font-unbounded), sans-serif" }}>Kontakt</span>
+                <span className="text-sm uppercase text-white tracking-widest" style={{ fontFamily: "var(--font-syncopate), sans-serif" }}>Kontakt</span>
               </a>
               <p className="text-sm text-gray-500">Wszelkie prawa zastrzeżone © Glassiv Deco 2026</p>
             </nav>
@@ -221,8 +221,8 @@ export default function Home() {
             <p
               className="uppercase text-white"
               style={{
-                fontFamily: "var(--font-unbounded), sans-serif",
-                fontWeight: 700,
+                fontFamily: "var(--font-syncopate), sans-serif",
+                fontWeight: 800,
                 fontSize: "clamp(24px, 4vw, 42px)",
                 lineHeight: 1.1,
               }}
@@ -308,10 +308,10 @@ export default function Home() {
                 <div className="w-12 h-12 flex items-center justify-center" style={{ background: "rgba(19,19,186,0.15)", border: "1px solid rgba(19,19,186,0.4)" }}>
                   {icon}
                 </div>
-                <h3 className="text-white font-bold uppercase" style={{ fontFamily: "var(--font-unbounded), sans-serif", fontSize: "13px", letterSpacing: "0.05em" }}>
+                <h3 className="text-white font-extrabold uppercase" style={{ fontFamily: "var(--font-syncopate), sans-serif", fontSize: "13px", letterSpacing: "0.05em" }}>
                   {title}
                 </h3>
-                <p className="text-gray-400 text-sm leading-relaxed" style={{ fontFamily: "var(--font-archivo), sans-serif" }}>
+                <p className="text-gray-400 text-sm leading-relaxed" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
                   {desc}
                 </p>
               </SpotlightCard>
@@ -323,7 +323,7 @@ export default function Home() {
       {/* ─── TECHNOLOGIES SECTION ─── */}
       <section id="technologie" className="bg-gray-50 py-24 overflow-hidden">
         <div className="container mx-auto px-6 lg:px-8">
-          <p className="uppercase text-black mb-10 md:mb-16" style={{ fontFamily: "var(--font-unbounded), sans-serif", fontWeight: 700, fontSize: "clamp(26px, 4vw, 42px)", lineHeight: 1.1 }}>
+          <p className="uppercase text-black mb-10 md:mb-16" style={{ fontFamily: "var(--font-syncopate), sans-serif", fontWeight: 800, fontSize: "clamp(26px, 4vw, 42px)", lineHeight: 1.1 }}>
             Oferta /<br />Nasze technologie
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -360,11 +360,11 @@ export default function Home() {
               },
             ].map(({ n, title, body }) => (
               <SpotlightCard key={n} className="bg-white p-6 md:p-10 flex flex-col gap-5 tech-card" spotlightColor="rgba(0,180,240,0.12)">
-                <span className="text-xs font-semibold" style={{ color: "#1313ba", fontFamily: "var(--font-archivo), sans-serif", letterSpacing: "0.15em" }}>{n}</span>
-                <h3 className="text-base font-bold uppercase text-black" style={{ fontFamily: "var(--font-unbounded), sans-serif", lineHeight: 1.4, fontSize: "13px" }}>
+                <span className="text-xs font-semibold" style={{ color: "#1313ba", fontFamily: "var(--font-inter), sans-serif", letterSpacing: "0.15em" }}>{n}</span>
+                <h3 className="text-base font-extrabold uppercase text-black" style={{ fontFamily: "var(--font-syncopate), sans-serif", lineHeight: 1.4, fontSize: "13px" }}>
                   {title}
                 </h3>
-                <p className="text-sm text-gray-500 leading-relaxed" style={{ fontFamily: "var(--font-archivo), sans-serif" }}>
+                <p className="text-sm text-gray-500 leading-relaxed" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
                   {body}
                 </p>
               </SpotlightCard>
@@ -387,8 +387,8 @@ export default function Home() {
                     <path d="M3.53923 5.0709C8.57209 -0.348133 17.1109 -0.722452 22.612 4.23495C28.1139 9.19271 28.4928 17.6049 23.4607 23.0239L13.4996 33.7485L3.53923 23.0239C-1.17974 17.942 -1.17974 10.1521 3.53923 5.0709ZM5.93178 20.8678L13.4996 29.0166L21.0678 20.8678C24.8913 16.7503 24.6032 10.3593 20.4229 6.5918C16.2431 2.82463 9.75528 3.10984 5.93178 7.22628C2.34514 11.0872 2.34514 17.0062 5.93178 20.8678ZM16.4639 14.0467C16.4639 12.4342 15.1365 11.1266 13.4996 11.1266C11.8627 11.1266 10.5345 12.4342 10.5345 14.0467C10.5345 15.6599 11.8627 16.9675 13.4996 16.9675C15.1365 16.9675 16.4639 15.6599 16.4639 14.0467Z" fill="#1313ba"/>
                   </svg>
                 </span>
-                <h3 className="mb-2 text-xs uppercase tracking-widest" style={{ color: "#1313ba", fontFamily: "var(--font-archivo), sans-serif" }}>Adres</h3>
-                <p className="text-xl md:text-2xl text-white font-bold uppercase" style={{ fontFamily: "var(--font-unbounded), sans-serif", lineHeight: 1.3 }}>
+                <h3 className="mb-2 text-xs uppercase tracking-widest" style={{ color: "#1313ba", fontFamily: "var(--font-inter), sans-serif" }}>Adres</h3>
+                <p className="text-xl md:text-2xl text-white font-extrabold uppercase" style={{ fontFamily: "var(--font-syncopate), sans-serif", lineHeight: 1.3 }}>
                   ul. Zbożowa 10<br />
                   37-500 Jarosław
                 </p>
@@ -400,11 +400,11 @@ export default function Home() {
                     <path d="M1 5l15.5 11L32 5" stroke="#1313ba" strokeWidth="1.5" strokeLinecap="round"/>
                   </svg>
                 </span>
-                <h3 className="mb-2 text-xs uppercase tracking-widest" style={{ color: "#1313ba", fontFamily: "var(--font-archivo), sans-serif" }}>Kontakt</h3>
-                <a className="block text-lg md:text-2xl text-white font-bold hover:text-blue-400 transition-colors break-all" href="mailto:maciej@glassivdeco.com" style={{ fontFamily: "var(--font-unbounded), sans-serif" }}>
+                <h3 className="mb-2 text-xs uppercase tracking-widest" style={{ color: "#1313ba", fontFamily: "var(--font-inter), sans-serif" }}>Kontakt</h3>
+                <a className="block text-lg md:text-2xl text-white font-extrabold hover:text-blue-400 transition-colors break-all" href="mailto:maciej@glassivdeco.com" style={{ fontFamily: "var(--font-syncopate), sans-serif" }}>
                   maciej@glassivdeco.com
                 </a>
-                <p className="text-xl md:text-2xl text-white font-bold uppercase mt-2" style={{ fontFamily: "var(--font-unbounded), sans-serif" }}>
+                <p className="text-xl md:text-2xl text-white font-extrabold uppercase mt-2" style={{ fontFamily: "var(--font-syncopate), sans-serif" }}>
                   +48 660 788 125
                 </p>
               </div>
@@ -414,7 +414,7 @@ export default function Home() {
           {/* Right — form */}
           <div className="w-full md:w-1/2 px-4">
             <div className="max-w-md mx-auto py-16 md:py-24">
-              <h2 className="mb-8 text-2xl md:text-3xl text-white uppercase font-bold" style={{ fontFamily: "var(--font-unbounded), sans-serif" }}>
+              <h2 className="mb-8 text-2xl md:text-3xl text-white uppercase font-extrabold" style={{ fontFamily: "var(--font-syncopate), sans-serif" }}>
                 Formularz kontaktowy
               </h2>
               <div className="flex flex-col gap-4">
@@ -424,7 +424,7 @@ export default function Home() {
                   placeholder="Adres e-mail"
                   style={{
                     borderBottom: "1px solid #1313ba",
-                    fontFamily: "var(--font-unbounded), sans-serif",
+                    fontFamily: "var(--font-syncopate), sans-serif",
                     fontSize: "12px",
                     color: "rgba(255,255,255,0.7)",
                     letterSpacing: "0.05em",
@@ -435,7 +435,7 @@ export default function Home() {
                   placeholder="Twoja wiadomość..."
                   style={{
                     borderBottom: "1px solid #1313ba",
-                    fontFamily: "var(--font-unbounded), sans-serif",
+                    fontFamily: "var(--font-syncopate), sans-serif",
                     fontSize: "12px",
                     color: "rgba(255,255,255,0.7)",
                     letterSpacing: "0.05em",
@@ -443,7 +443,7 @@ export default function Home() {
                 />
                 <label className="flex items-start gap-3">
                   <input type="checkbox" className="mt-1 accent-blue-600" />
-                  <span style={{ fontFamily: "var(--font-unbounded), sans-serif", fontSize: "10px", letterSpacing: "0.04em", color: "rgba(255,255,255,0.5)" }}>
+                  <span style={{ fontFamily: "var(--font-syncopate), sans-serif", fontSize: "10px", letterSpacing: "0.04em", color: "rgba(255,255,255,0.5)" }}>
                     Akceptuję{" "}
                     <a className="hover:underline" style={{ color: "rgba(255,255,255,0.7)" }} href="#">politykę prywatności</a>{" "}
                     i wyrażam zgodę na przetwarzanie danych.
@@ -487,7 +487,7 @@ export default function Home() {
               <ul className="flex flex-wrap gap-8">
                 {NAV_LINKS.map(item => (
                   <li key={item.label}>
-                    <a className="text-sm text-white/60 uppercase hover:text-white transition-colors font-heading cursor-pointer" onClick={e => { e.preventDefault(); scrollTo(item.href) }} style={{ fontFamily: "var(--font-unbounded), sans-serif", fontSize: "11px", letterSpacing: "0.1em" }}>
+                    <a className="text-sm text-white/60 uppercase hover:text-white transition-colors font-heading cursor-pointer" onClick={e => { e.preventDefault(); scrollTo(item.href) }} style={{ fontFamily: "var(--font-syncopate), sans-serif", fontSize: "11px", letterSpacing: "0.1em" }}>
                       {item.label}
                     </a>
                   </li>
@@ -496,7 +496,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-white/10 pt-6">
-            <p className="text-gray-500 text-sm" style={{ fontFamily: "var(--font-archivo), sans-serif" }}>
+            <p className="text-gray-500 text-sm" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
               Wszelkie prawa zastrzeżone © Glassiv Deco 2026
             </p>
           </div>
