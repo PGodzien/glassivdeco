@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Syncopate, Inter } from "next/font/google";
+import { Syncopate, Manrope } from "next/font/google";
 import "./globals.css";
 
 const syncopate = Syncopate({
@@ -8,7 +8,7 @@ const syncopate = Syncopate({
   weight: ["400", "700"],
 });
 
-const inter = Inter({
+const inter = Manrope({
   variable: "--font-inter",
   subsets: ["latin", "latin-ext"],
 });
