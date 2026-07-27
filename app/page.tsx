@@ -135,7 +135,7 @@ export default function Home() {
               <span className="block mb-4 md:absolute top-0 right-0 text-sm lg:text-lg font-semibold uppercase tracking-widest" style={{ fontFamily: "var(--font-inter), sans-serif", color: "#1313ba" }}>
                 Technologia szkła
               </span>
-              <h2 className="mb-8 md:mb-0 text-3xl sm:text-5xl md:text-6xl text-white font-heading font-extrabold" style={{ lineHeight: 1.1 }}>
+              <h2 className="mb-8 md:mb-0 text-3xl sm:text-5xl md:text-6xl text-white font-heading font-extrabold uppercase" style={{ lineHeight: 1.1 }}>
                 <span>Zdobnictwo</span>
                 <span className="block">szklanych opakowań</span>
                 <span className="block text-right">na poziomie</span>
@@ -259,8 +259,8 @@ export default function Home() {
                 desc: "Utrzymujemy pozycję lidera w branży dzięki połączeniu światowej klasy wiedzy technicznej i najwyższej jakości nadrukom na szkle.",
                 icon: (
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1313ba" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    <path d="M9 12l2 2 4-4"/>
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <path d="M9 12l2 2 4-4" />
                   </svg>
                 ),
               },
@@ -269,10 +269,10 @@ export default function Home() {
                 desc: "Stosujemy konkurencyjne ceny oraz upusty dla stałych klientów, by jak najlepiej odpowiadać Państwa potrzebom biznesowym.",
                 icon: (
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1313ba" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <path d="M12 6v6l4 2"/>
-                    <path d="M16 8h-4a2 2 0 0 0 0 4h2a2 2 0 0 1 0 4H8"/>
-                    <path d="M12 18v-2M12 8V6"/>
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 6v6l4 2" />
+                    <path d="M16 8h-4a2 2 0 0 0 0 4h2a2 2 0 0 1 0 4H8" />
+                    <path d="M12 18v-2M12 8V6" />
                   </svg>
                 ),
               },
@@ -281,8 +281,8 @@ export default function Home() {
                 desc: "Najkrótsze terminy realizacji powierzonych nam zadań są naszym priorytetem. Dotrzymujemy terminów bez kompromisów.",
                 icon: (
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1313ba" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <polyline points="12 6 12 12 16 14"/>
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
                   </svg>
                 ),
               },
@@ -291,10 +291,10 @@ export default function Home() {
                 desc: "W trosce o naszych klientów dbamy o poufność i bezpieczeństwo danych oraz służymy pomocą w zakresie świadczonej usługi.",
                 icon: (
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1313ba" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                    <circle cx="9" cy="7" r="4"/>
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                   </svg>
                 ),
               },
@@ -384,7 +384,7 @@ export default function Home() {
               <div className="mb-12">
                 <span className="inline-block mb-5">
                   <svg width="27" height="34" viewBox="0 0 27 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3.53923 5.0709C8.57209 -0.348133 17.1109 -0.722452 22.612 4.23495C28.1139 9.19271 28.4928 17.6049 23.4607 23.0239L13.4996 33.7485L3.53923 23.0239C-1.17974 17.942 -1.17974 10.1521 3.53923 5.0709ZM5.93178 20.8678L13.4996 29.0166L21.0678 20.8678C24.8913 16.7503 24.6032 10.3593 20.4229 6.5918C16.2431 2.82463 9.75528 3.10984 5.93178 7.22628C2.34514 11.0872 2.34514 17.0062 5.93178 20.8678ZM16.4639 14.0467C16.4639 12.4342 15.1365 11.1266 13.4996 11.1266C11.8627 11.1266 10.5345 12.4342 10.5345 14.0467C10.5345 15.6599 11.8627 16.9675 13.4996 16.9675C15.1365 16.9675 16.4639 15.6599 16.4639 14.0467Z" fill="#1313ba"/>
+                    <path d="M3.53923 5.0709C8.57209 -0.348133 17.1109 -0.722452 22.612 4.23495C28.1139 9.19271 28.4928 17.6049 23.4607 23.0239L13.4996 33.7485L3.53923 23.0239C-1.17974 17.942 -1.17974 10.1521 3.53923 5.0709ZM5.93178 20.8678L13.4996 29.0166L21.0678 20.8678C24.8913 16.7503 24.6032 10.3593 20.4229 6.5918C16.2431 2.82463 9.75528 3.10984 5.93178 7.22628C2.34514 11.0872 2.34514 17.0062 5.93178 20.8678ZM16.4639 14.0467C16.4639 12.4342 15.1365 11.1266 13.4996 11.1266C11.8627 11.1266 10.5345 12.4342 10.5345 14.0467C10.5345 15.6599 11.8627 16.9675 13.4996 16.9675C15.1365 16.9675 16.4639 15.6599 16.4639 14.0467Z" fill="#1313ba" />
                   </svg>
                 </span>
                 <h3 className="mb-2 text-xs uppercase tracking-widest" style={{ color: "#1313ba", fontFamily: "var(--font-inter), sans-serif" }}>Adres</h3>
@@ -396,8 +396,8 @@ export default function Home() {
               <div>
                 <span className="inline-block mb-5">
                   <svg width="33" height="28" viewBox="0 0 33 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="1" y="1" width="31" height="26" rx="2" stroke="#1313ba" strokeWidth="1.5"/>
-                    <path d="M1 5l15.5 11L32 5" stroke="#1313ba" strokeWidth="1.5" strokeLinecap="round"/>
+                    <rect x="1" y="1" width="31" height="26" rx="2" stroke="#1313ba" strokeWidth="1.5" />
+                    <path d="M1 5l15.5 11L32 5" stroke="#1313ba" strokeWidth="1.5" strokeLinecap="round" />
                   </svg>
                 </span>
                 <h3 className="mb-2 text-xs uppercase tracking-widest" style={{ color: "#1313ba", fontFamily: "var(--font-inter), sans-serif" }}>Kontakt</h3>
