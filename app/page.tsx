@@ -401,11 +401,11 @@ export default function Home() {
                   </svg>
                 </span>
                 <h3 className="mb-2 text-xs uppercase tracking-widest" style={{ color: "#1313ba", fontFamily: "var(--font-inter), sans-serif" }}>Kontakt</h3>
-                <a className="block text-lg md:text-2xl text-white font-extrabold hover:text-blue-400 transition-colors break-all" href="mailto:maciej@glassivdeco.com" style={{ fontFamily: "var(--font-syncopate), sans-serif" }}>
-                  maciej@glassivdeco.com
+                <a className="block text-lg md:text-2xl text-white font-extrabold hover:text-blue-400 transition-colors break-all" href="mailto:mateusz.lorenc@glassivdeco.com" style={{ fontFamily: "var(--font-syncopate), sans-serif" }}>
+                  mateusz.lorenc@glassivdeco.com
                 </a>
                 <p className="text-xl md:text-2xl text-white font-extrabold uppercase mt-2" style={{ fontFamily: "var(--font-syncopate), sans-serif" }}>
-                  +48 660 788 125
+                  +48 791 161 261
                 </p>
               </div>
             </div>
