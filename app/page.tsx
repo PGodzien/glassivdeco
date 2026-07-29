@@ -405,7 +405,7 @@ export default function Home() {
                   mateusz.lorenc@glassivdeco.com
                 </a>
                 <p className="text-xl md:text-2xl text-white font-extrabold uppercase mt-2" style={{ fontFamily: "var(--font-syncopate), sans-serif" }}>
-                  +48 791 161 261
+                  +48 886 855 633
                 </p>
               </div>
             </div>

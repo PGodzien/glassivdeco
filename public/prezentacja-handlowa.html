@@ -1114,7 +1114,12 @@
       }
       .history-v2 .history-photos::after {
         background:
-          linear-gradient(180deg, rgba(2, 4, 10, 0.2), rgba(2, 4, 10, 0.56) 42%, #02040a 100%),
+          linear-gradient(
+            180deg,
+            rgba(2, 4, 10, 0.2),
+            rgba(2, 4, 10, 0.56) 42%,
+            #02040a 100%
+          ),
           linear-gradient(90deg, rgba(2, 4, 10, 0.78), transparent 58%);
       }
       .history-v2 .eyebrow,
@@ -1213,14 +1218,30 @@
       .history-v2.active .history-item {
         animation: historyCardIn 0.72s var(--ease) both;
       }
-      .history-v2.active .history-item:nth-child(1) { animation-delay: 0.08s; }
-      .history-v2.active .history-item:nth-child(2) { animation-delay: 0.14s; }
-      .history-v2.active .history-item:nth-child(3) { animation-delay: 0.2s; }
-      .history-v2.active .history-item:nth-child(4) { animation-delay: 0.26s; }
-      .history-v2.active .history-item:nth-child(5) { animation-delay: 0.32s; }
+      .history-v2.active .history-item:nth-child(1) {
+        animation-delay: 0.08s;
+      }
+      .history-v2.active .history-item:nth-child(2) {
+        animation-delay: 0.14s;
+      }
+      .history-v2.active .history-item:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      .history-v2.active .history-item:nth-child(4) {
+        animation-delay: 0.26s;
+      }
+      .history-v2.active .history-item:nth-child(5) {
+        animation-delay: 0.32s;
+      }
       @keyframes historyCardIn {
-        from { opacity: 0; translate: 0 35px; }
-        to { opacity: 1; translate: 0 0; }
+        from {
+          opacity: 0;
+          translate: 0 35px;
+        }
+        to {
+          opacity: 1;
+          translate: 0 0;
+        }
       }
       @media (max-width: 920px) {
         .history-v2 .slide-inner {
@@ -1318,8 +1339,11 @@
         margin: 0;
         border: 1px solid rgba(255, 255, 255, 0.13);
         border-radius: clamp(10px, 1vw, 20px);
-        background:
-          linear-gradient(145deg, rgba(13, 24, 46, 0.96), rgba(4, 9, 19, 0.94));
+        background: linear-gradient(
+          145deg,
+          rgba(13, 24, 46, 0.96),
+          rgba(4, 9, 19, 0.94)
+        );
         box-shadow:
           0 28px 60px rgba(0, 0, 0, 0.68),
           inset 0 1px 0 rgba(255, 255, 255, 0.06);
@@ -1587,8 +1611,16 @@
         display: block;
         overflow: hidden;
         background:
-          radial-gradient(circle at 74% 50%, rgba(17, 69, 170, 0.22), transparent 35%),
-          radial-gradient(circle at 12% 84%, rgba(200, 169, 110, 0.08), transparent 30%),
+          radial-gradient(
+            circle at 74% 50%,
+            rgba(17, 69, 170, 0.22),
+            transparent 35%
+          ),
+          radial-gradient(
+            circle at 12% 84%,
+            rgba(200, 169, 110, 0.08),
+            transparent 30%
+          ),
           #02040a;
       }
       .clients-v2::before {
@@ -1597,7 +1629,11 @@
         inset: 0;
         background-image:
           linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+          linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+          );
         background-size: 7.5vw 7.5vw;
         mask-image: linear-gradient(90deg, black, transparent 76%);
         pointer-events: none;
@@ -1716,33 +1752,81 @@
         filter: brightness(0) invert(1);
         opacity: 0.92;
       }
-      .client-card:nth-child(1) { left: 2%; top: 4%; }
-      .client-card:nth-child(2) { right: 1%; top: 0; }
-      .client-card:nth-child(3) { left: 7%; top: 37%; }
-      .client-card:nth-child(4) { right: -3%; top: 33%; }
-      .client-card:nth-child(5) { left: 0; bottom: 3%; }
-      .client-card:nth-child(6) { right: 4%; bottom: 7%; }
-      .client-card:nth-child(3) img { transform: scale(1.28); }
-      .client-card:nth-child(4) img { transform: scale(1.52); }
-      .client-card:nth-child(5) img { transform: scale(1.2); }
-      .client-card:nth-child(6) img { transform: scale(1.1); }
+      .client-card:nth-child(1) {
+        left: 2%;
+        top: 4%;
+      }
+      .client-card:nth-child(2) {
+        right: 1%;
+        top: 0;
+      }
+      .client-card:nth-child(3) {
+        left: 7%;
+        top: 37%;
+      }
+      .client-card:nth-child(4) {
+        right: -3%;
+        top: 33%;
+      }
+      .client-card:nth-child(5) {
+        left: 0;
+        bottom: 3%;
+      }
+      .client-card:nth-child(6) {
+        right: 4%;
+        bottom: 7%;
+      }
+      .client-card:nth-child(3) img {
+        transform: scale(1.28);
+      }
+      .client-card:nth-child(4) img {
+        transform: scale(1.52);
+      }
+      .client-card:nth-child(5) img {
+        transform: scale(1.2);
+      }
+      .client-card:nth-child(6) img {
+        transform: scale(1.1);
+      }
       .clients-v2.active .clients-copy > * {
         animation: revealUp 0.8s var(--ease) both;
       }
-      .clients-v2.active .clients-copy > *:nth-child(2) { animation-delay: 0.08s; }
-      .clients-v2.active .clients-copy > *:nth-child(3) { animation-delay: 0.16s; }
+      .clients-v2.active .clients-copy > *:nth-child(2) {
+        animation-delay: 0.08s;
+      }
+      .clients-v2.active .clients-copy > *:nth-child(3) {
+        animation-delay: 0.16s;
+      }
       .clients-v2.active .client-card {
         animation: clientCardIn 0.75s var(--ease) both;
       }
-      .clients-v2.active .client-card:nth-child(1) { animation-delay: 0.1s; }
-      .clients-v2.active .client-card:nth-child(2) { animation-delay: 0.16s; }
-      .clients-v2.active .client-card:nth-child(3) { animation-delay: 0.22s; }
-      .clients-v2.active .client-card:nth-child(4) { animation-delay: 0.28s; }
-      .clients-v2.active .client-card:nth-child(5) { animation-delay: 0.34s; }
-      .clients-v2.active .client-card:nth-child(6) { animation-delay: 0.4s; }
+      .clients-v2.active .client-card:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .clients-v2.active .client-card:nth-child(2) {
+        animation-delay: 0.16s;
+      }
+      .clients-v2.active .client-card:nth-child(3) {
+        animation-delay: 0.22s;
+      }
+      .clients-v2.active .client-card:nth-child(4) {
+        animation-delay: 0.28s;
+      }
+      .clients-v2.active .client-card:nth-child(5) {
+        animation-delay: 0.34s;
+      }
+      .clients-v2.active .client-card:nth-child(6) {
+        animation-delay: 0.4s;
+      }
       @keyframes clientCardIn {
-        from { opacity: 0; transform: translateY(30px) scale(0.96); }
-        to { opacity: 1; transform: translateY(0) scale(1); }
+        from {
+          opacity: 0;
+          transform: translateY(30px) scale(0.96);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
       }
       @media (max-width: 920px) {
         .clients-copy {
@@ -2269,8 +2353,8 @@
         <header class="mosaic-heading">
           <h2>Kompleksowe realizacje</h2>
           <p>
-            Realizujemy zlecenia dla branży alkoholowej, napojowej,
-            kosmetycznej i spożywczej — od koncepcji po gotowe opakowanie.
+            Realizujemy zlecenia dla branży alkoholowej, napojowej, kosmetycznej
+            i spożywczej — od koncepcji po gotowe opakowanie.
           </p>
         </header>
         <div class="mosaic-grid">
@@ -2431,7 +2515,10 @@
           <h2 class="h-xl" style="font-size: clamp(26px, 3.6vw, 46px)">
             Skala, która robi wrażenie
           </h2>
-          <div class="stat-row-compact" style="flex-direction: column; gap: 24px; margin-top: 26px;">
+          <div
+            class="stat-row-compact"
+            style="flex-direction: column; gap: 24px; margin-top: 26px"
+          >
             <div class="stat-item">
               <span class="stat-number">80&nbsp;000</span>
               <span class="stat-label"
@@ -2441,10 +2528,10 @@
             <div class="stat-item">
               <span class="stat-number">~20 km</span>
               <span class="stat-label"
-                >Gdyby butelki z jednej doby produkcji ustawić jedną na
-                drugiej, powstałaby wieża wysokości ok. 20&nbsp;km — wyższa
-                niż dystans od dna Rowu Mariańskiego po szczyt Mount Everestu,
-                najgłębszego i najwyższego punktu na Ziemi</span
+                >Gdyby butelki z jednej doby produkcji ustawić jedną na drugiej,
+                powstałaby wieża wysokości ok. 20&nbsp;km — wyższa niż dystans
+                od dna Rowu Mariańskiego po szczyt Mount Everestu, najgłębszego
+                i najwyższego punktu na Ziemi</span
               >
             </div>
           </div>
@@ -2514,7 +2601,9 @@
                 <span class="tech-tag" style="margin: 0"
                   >Opakowania farmaceutyczne i kosmetyczne</span
                 >
-                <span class="tech-tag" style="margin: 0">Kubki i kieliszki</span>
+                <span class="tech-tag" style="margin: 0"
+                  >Kubki i kieliszki</span
+                >
                 <span class="tech-tag" style="margin: 0"
                   >Kufle i wyroby użytkowe</span
                 >
@@ -2523,10 +2612,16 @@
             <div class="scope-chip-group">
               <span class="scope-chip-label">Technologie i materiały</span>
               <div class="tag-row">
-                <span class="tech-tag" style="margin: 0">Sitodruk mineralny</span>
+                <span class="tech-tag" style="margin: 0"
+                  >Sitodruk mineralny</span
+                >
                 <span class="tech-tag" style="margin: 0">Sitodruk UV</span>
-                <span class="tech-tag" style="margin: 0">Pokrycia całościowe</span>
-                <span class="tech-tag" style="margin: 0">Pokrycia selektywne</span>
+                <span class="tech-tag" style="margin: 0"
+                  >Pokrycia całościowe</span
+                >
+                <span class="tech-tag" style="margin: 0"
+                  >Pokrycia selektywne</span
+                >
                 <span class="tech-tag" style="margin: 0">Farby organiczne</span>
               </div>
             </div>
@@ -3066,7 +3161,7 @@
                 <a class="val" href="mailto:mateusz.lorenc@glassivdeco.com"
                   >mateusz.lorenc@glassivdeco.com</a
                 >
-                <span class="val">+48 791 161 261</span>
+                <span class="val">+48 886 855 633</span>
               </div>
             </div>
 
@@ -3341,8 +3436,7 @@
                 [parts[2], parts[1], parts[0]].join(".");
             }
             if (presentation.title) {
-              document.title =
-                presentation.title + " — Glassiv Deco";
+              document.title = presentation.title + " — Glassiv Deco";
             }
           })
           .catch(function () {
