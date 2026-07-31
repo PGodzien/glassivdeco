@@ -3393,6 +3393,14 @@
         var presentationSlug = new URLSearchParams(window.location.search).get(
           "presentation",
         );
+        if (!presentationSlug) {
+          var presentationPathMatch = window.location.pathname.match(
+            /^\/prezentacja-([a-z0-9-]+)\.html$/,
+          );
+          presentationSlug = presentationPathMatch
+            ? presentationPathMatch[1]
+            : null;
+        }
         if (!presentationSlug) return;
         var sanityQuery =
           '*[_type == "presentation" && slug.current == $slug][0]{clientName,presentationDate,title}';

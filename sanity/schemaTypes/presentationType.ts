@@ -1,4 +1,4 @@
-import {defineArrayMember, defineField, defineType} from "sanity"
+import {defineField, defineType} from "sanity"
 
 export const presentationType = defineType({
   name: "presentation",
@@ -33,31 +33,6 @@ export const presentationType = defineType({
       type: "date",
       options: {dateFormat: "DD.MM.YYYY"},
       validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: "finalSlide",
-      title: "Edytowalny slajd końcowy",
-      type: "object",
-      description:
-        "Treść jednego z końcowych slajdów. Podepniemy ją po ustaleniu jego wyglądu.",
-      fields: [
-        defineField({
-          name: "eyebrow",
-          title: "Mały nagłówek",
-          type: "string",
-        }),
-        defineField({
-          name: "title",
-          title: "Nagłówek",
-          type: "string",
-        }),
-        defineField({
-          name: "body",
-          title: "Treść",
-          type: "array",
-          of: [defineArrayMember({type: "block"})],
-        }),
-      ],
     }),
   ],
   orderings: [
