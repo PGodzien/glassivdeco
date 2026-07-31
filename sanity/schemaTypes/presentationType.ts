@@ -16,8 +16,9 @@ export const presentationType = defineType({
       name: "slug",
       title: "Adres prezentacji",
       type: "slug",
-      description: "Unikalny adres generowany na podstawie nazwy prezentacji.",
-      options: {source: "title", maxLength: 96},
+      description:
+        "Kliknij „Generate”, aby utworzyć adres z nazwy klienta, np. prezentacja-maspex.html.",
+      options: {source: "clientName", maxLength: 96},
       validation: (rule) => rule.required(),
     }),
     defineField({

@@ -3387,15 +3387,15 @@
         slides[0].classList.add("active");
         progressBar.style.width = (1 / total) * 100 + "%";
 
-        // Sanity: najnowsza prezentacja lub dokument wskazany przez ?presentation=slug
+        // Sanity: dokument wskazany przez chroniony adres prezentacji.
         var sanityProjectId = "0fzde33q";
         var sanityDataset = "production";
         var presentationSlug = new URLSearchParams(window.location.search).get(
           "presentation",
         );
-        var sanityQuery = presentationSlug
-          ? '*[_type == "presentation" && slug.current == $slug][0]{clientName,presentationDate,title}'
-          : '*[_type == "presentation"] | order(presentationDate desc)[0]{clientName,presentationDate,title}';
+        if (!presentationSlug) return;
+        var sanityQuery =
+          '*[_type == "presentation" && slug.current == $slug][0]{clientName,presentationDate,title}';
         var sanityUrl =
           "https://" +
           sanityProjectId +
@@ -3403,9 +3403,8 @@
           sanityDataset +
           "?query=" +
           encodeURIComponent(sanityQuery) +
-          (presentationSlug
-            ? "&$slug=" + encodeURIComponent(JSON.stringify(presentationSlug))
-            : "");
+          "&$slug=" +
+          encodeURIComponent(JSON.stringify(presentationSlug));
 
         fetch(sanityUrl)
           .then(function (response) {
@@ -3424,16 +3423,26 @@
             );
 
             if (clientField && presentation.clientName) {
-              clientField.innerHTML =
-                '<span class="meta-label">Klient</span>' +
-                presentation.clientName;
+              var clientLabel = document.createElement("span");
+              clientLabel.className = "meta-label";
+              clientLabel.textContent = "Klient";
+              clientField.replaceChildren(
+                clientLabel,
+                document.createTextNode(presentation.clientName),
+              );
             }
             if (dateField && presentation.presentationDate) {
               var parts = presentation.presentationDate.split("-");
               dateField.setAttribute("datetime", presentation.presentationDate);
-              dateField.innerHTML =
-                '<span class="meta-label">Data</span>' +
-                [parts[2], parts[1], parts[0]].join(".");
+              var dateLabel = document.createElement("span");
+              dateLabel.className = "meta-label";
+              dateLabel.textContent = "Data";
+              dateField.replaceChildren(
+                dateLabel,
+                document.createTextNode(
+                  [parts[2], parts[1], parts[0]].join("."),
+                ),
+              );
             }
             if (presentation.title) {
               document.title = presentation.title + " — Glassiv Deco";
