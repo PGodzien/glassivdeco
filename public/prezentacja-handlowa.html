@@ -1233,6 +1233,9 @@
       .history-v2.active .history-item:nth-child(5) {
         animation-delay: 0.32s;
       }
+      .history-v2.active .history-item:nth-child(6) {
+        animation-delay: 0.38s;
+      }
       @keyframes historyCardIn {
         from {
           opacity: 0;
@@ -1332,7 +1335,7 @@
       }
       .history-v2 .history-item {
         position: relative;
-        flex: 0 0 17.5%;
+        flex: 0 0 15.4%;
         min-height: clamp(230px, 35vh, 350px);
         padding: clamp(18px, 1.5vw, 28px);
         overflow: hidden;
@@ -1374,6 +1377,19 @@
         transform: translateY(8%) rotate(-3deg) scale(0.92);
         z-index: 2;
       }
+      .history-v2 .history-item:nth-child(6) {
+        transform: translateY(-7%) rotate(3deg) scale(1.04);
+        z-index: 5;
+        border-color: rgba(200, 169, 110, 0.55);
+        background: linear-gradient(
+          145deg,
+          rgba(34, 30, 21, 0.98),
+          rgba(8, 12, 20, 0.96)
+        );
+        box-shadow:
+          0 32px 70px rgba(0, 0, 0, 0.76),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
       .history-v2 .history-node {
         right: 18px;
         top: 20px;
@@ -1381,6 +1397,13 @@
       .history-v2 .history-year {
         margin-bottom: 2vh;
         font-size: clamp(1.2rem, 1.65vw, 2rem);
+      }
+      .history-v2 .history-item:nth-child(6) .history-year {
+        font-size: clamp(1.65rem, 2.4vw, 3rem);
+        color: #e0bd78;
+      }
+      .history-v2 .history-item:nth-child(6) .history-node {
+        box-shadow: 0 0 0 7px rgba(200, 169, 110, 0.12);
       }
       .history-v2 .history-title {
         min-height: 2.6em;
@@ -2470,6 +2493,16 @@
                 ><span class="history-brand-chip">Voda Nature</span
                 ><span class="history-brand-chip">Le Grande</span>
               </div>
+            </div>
+
+            <div class="history-item">
+              <span class="history-node"></span>
+              <span class="history-year">2026</span>
+              <span class="history-title">Nowy rozdział: GlassivDeco</span>
+              <p class="history-desc">
+                Zmiana nazwy firmy na GlassivDeco i dalszy rozwój marki w
+                zdobieniu opakowań szklanych.
+              </p>
             </div>
           </div>
         </div>

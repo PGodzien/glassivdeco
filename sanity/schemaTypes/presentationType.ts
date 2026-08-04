@@ -1,4 +1,5 @@
 import {defineField, defineType} from "sanity"
+import {PresentationLinkInput} from "../components/PresentationLinkInput"
 
 export const presentationType = defineType({
   name: "presentation",
@@ -17,7 +18,7 @@ export const presentationType = defineType({
       title: "Adres prezentacji",
       type: "slug",
       description:
-        "Kliknij „Generate”, aby utworzyć adres z nazwy klienta, np. prezentacja-maspex.html.",
+        "Kliknij „Generate”, aby utworzyć adres z nazwy klienta, np. maspex.",
       options: {source: "clientName", maxLength: 96},
       validation: (rule) => rule.required(),
     }),
@@ -33,6 +34,13 @@ export const presentationType = defineType({
       type: "date",
       options: {dateFormat: "DD.MM.YYYY"},
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "presentationLink",
+      title: "Link prezentacji",
+      type: "string",
+      readOnly: true,
+      components: {input: PresentationLinkInput},
     }),
   ],
   orderings: [
