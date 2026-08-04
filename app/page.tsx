@@ -5,6 +5,7 @@ import Image from "next/image"
 import { useState } from "react"
 
 const DepthGallery = dynamic(() => import("./components/DepthGallery"), { ssr: false })
+const OfferTechnologyIndex = dynamic(() => import("./components/OfferTechnologyIndex"), { ssr: false })
 const TechnologyShowcase = dynamic(() => import("./components/TechnologyShowcase"), { ssr: false })
 const Prism = dynamic(() => import("./components/Prism"), { ssr: false })
 const SpotlightCard = dynamic(() => import("./components/SpotlightCard"), { ssr: false })
@@ -244,20 +245,6 @@ export default function Home() {
               box-shadow: 0 16px 48px rgba(215,182,109,0.28), 0 2px 8px rgba(0,0,0,0.5);
               border-color: rgba(215,182,109,0.5);
             }
-            .tech-card {
-              position: relative;
-              overflow: hidden;
-              border: 1px solid rgba(215,182,109,0.22);
-              border-radius: 32px;
-              background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(250,248,243,0.96));
-              box-shadow: 0 14px 40px rgba(35,28,15,0.055), inset 0 1px 0 rgba(255,255,255,0.9);
-              transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease, border-color 0.35s ease;
-            }
-            .tech-card:hover {
-              transform: translateY(-6px);
-              border-color: rgba(215,182,109,0.58);
-              box-shadow: 0 28px 70px rgba(91,69,27,0.13), inset 0 1px 0 rgba(255,255,255,1);
-            }
           `}</style>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
@@ -330,58 +317,8 @@ export default function Home() {
       {/* ─── TECHNOLOGY SHOWCASE ─── */}
       <TechnologyShowcase />
 
-      {/* ─── TECHNOLOGIES SECTION ─── */}
-      <section id="technologie" className="py-24 overflow-hidden" style={{ background: "linear-gradient(180deg, #f6f4ef 0%, #efede7 100%)" }}>
-        <div className="container mx-auto px-6 lg:px-8">
-          <p className="uppercase text-black mb-10 md:mb-16" style={{ fontFamily: "var(--font-syncopate), sans-serif", fontWeight: 800, fontSize: "clamp(26px, 4vw, 42px)", lineHeight: 1.1 }}>
-            Oferta /<br />Nasze technologie
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              {
-                n: "01",
-                title: "Sitodruk emaliami mineralnymi i organicznymi",
-                body: "Zdobienie opakowań szklanych sitodrukiem przy użyciu farb mineralnych daje ogromne możliwości estetyczne. Farba mineralna jest nieagresywna, nietrująca i nieszkodliwa dla środowiska, a zarazem odporna chemicznie i mechanicznie.",
-              },
-              {
-                n: "02",
-                title: "Satynowanie i kolorowanie butelek",
-                body: "Opracowaliśmy technologię pokrywania całych opakowań szklanych kolorem litym, przezroczystym lub transparentnym oraz uzyskania niespotykanej imitacji zmrożenia butelek. Wysoka odporność mechaniczna i bogata paleta kolorów.",
-              },
-              {
-                n: "03",
-                title: "Sitodruk połączony z pokrywaniem powierzchni",
-                body: "Połączenie metody sitodruku i satynowania pozwala uzyskać oryginalny i piękny wygląd zdobionego szkła. Posiadany automat daje nieograniczone możliwości kolorystyczne w technologicznie dopuszczalnej kolejności warstw.",
-              },
-              {
-                n: "04",
-                title: "Sitodruk UV na powierzchniach o różnych przekrojach",
-                body: "Szkło malowane metodą UV — farby utwardzane falami ultrafioletowymi. Główna zaleta to możliwość wybrania znacznie większej liczby kolorów niż w tradycyjnym sitodruku. Stosowane farby UV nie zawierają metali ciężkich.",
-              },
-              {
-                n: "05",
-                title: "Pokrycia z metali szlachetnych",
-                body: "Pokrycie emaliami z zawartością metali szlachetnych pozwala osiągnąć eleganckie efekty. Do drukowania tą metodą używamy miedzi, srebra, złota i platyny — jako zamienniki klasycznych emalii mineralnych.",
-              },
-              {
-                n: "06",
-                title: "Maskowanie selektywne pokryć",
-                body: "Wprowadziliśmy możliwość wstawienia tzw. okna widokowego, które oprócz walorów estetycznych nadaje oryginalność produktowi. Podkreśla główny element poprzez jego powiększenie dzięki właściwościom optycznym pokrycia.",
-              },
-            ].map(({ n, title, body }) => (
-              <SpotlightCard key={n} className="p-7 md:p-10 flex min-h-[330px] flex-col gap-5 tech-card" spotlightColor="rgba(215,182,109,0.14)">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d7b66d]/40 bg-[#d7b66d]/10 text-xs font-semibold" style={{ color: "#9b7b37", fontFamily: "var(--font-inter), sans-serif", letterSpacing: "0.08em" }}>{n}</span>
-                <h3 className="text-base font-extrabold uppercase text-black" style={{ fontFamily: "var(--font-syncopate), sans-serif", lineHeight: 1.4, fontSize: "13px" }}>
-                  {title}
-                </h3>
-                <p className="text-sm leading-relaxed" style={{ color: "#6f6a61", fontFamily: "var(--font-inter), sans-serif" }}>
-                  {body}
-                </p>
-              </SpotlightCard>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ─── TECHNOLOGIES INDEX ─── */}
+      <OfferTechnologyIndex />
 
       {/* ─── CONTACT SECTION ─── */}
 
