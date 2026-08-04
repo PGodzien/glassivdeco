@@ -88,7 +88,7 @@ export default function TechnologyShowcase() {
       <div className="mx-auto max-w-[1500px] px-5 md:px-8 lg:px-16">
         <div className="mb-10 flex items-end justify-between gap-8 md:mb-14">
           <div>
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-blue-500">Wybrane realizacje</p>
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-[#d7b66d]">Wybrane realizacje</p>
             <h2 id="showcase-title" className="max-w-3xl text-2xl font-extrabold uppercase leading-[1.15] text-white md:text-4xl">
               Jedno szkło.<br />Wiele możliwości.
             </h2>
@@ -111,7 +111,7 @@ export default function TechnologyShowcase() {
                   aria-pressed={isActive}
                 >
                   <motion.span
-                    animate={{ color: isActive ? "#3b82f6" : "rgba(255,255,255,.35)" }}
+                    animate={{ color: isActive ? "#d7b66d" : "rgba(255,255,255,.35)" }}
                     className="w-8 shrink-0 text-xs font-semibold tracking-[0.18em]"
                   >
                     {item.number}
@@ -127,7 +127,7 @@ export default function TechnologyShowcase() {
                   <motion.span
                     animate={{ scaleX: isActive ? 1 : 0 }}
                     transition={{ duration: 0.35, ease: "easeOut" }}
-                    className="absolute bottom-[-1px] left-0 h-px w-full origin-left bg-blue-500"
+                    className="absolute bottom-[-1px] left-0 h-px w-full origin-left bg-[#d7b66d]"
                   />
                 </button>
               )
@@ -172,10 +172,10 @@ export default function TechnologyShowcase() {
             aria-label={`Galeria: ${technology.name}`}
             onClick={(event) => { if (event.target === event.currentTarget) setModalIndex(null) }}
           >
-            <div className="pointer-events-none absolute -left-[15vw] -top-[25vh] h-[65vh] w-[65vh] rounded-full bg-blue-600/25 blur-[130px]" />
-            <div className="pointer-events-none absolute -bottom-[30vh] -right-[10vw] h-[70vh] w-[70vh] rounded-full bg-cyan-500/15 blur-[150px]" />
-            <button onClick={() => setModalIndex(null)} className="absolute right-4 top-4 z-20 grid h-12 w-12 place-items-center rounded-full border border-white/25 bg-black/50 text-2xl text-white transition-colors hover:border-blue-500 md:right-8 md:top-8" aria-label="Zamknij galerię">×</button>
-            <button onClick={() => moveModal(-1)} className="absolute left-3 top-1/2 z-20 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-white/25 bg-black/60 text-xl text-white transition-colors hover:border-blue-500 md:left-8" aria-label="Poprzednie zdjęcie">←</button>
+            <div className="pointer-events-none absolute -left-[15vw] -top-[25vh] h-[65vh] w-[65vh] rounded-full bg-[#d7b66d]/20 blur-[130px]" />
+            <div className="pointer-events-none absolute -bottom-[30vh] -right-[10vw] h-[70vh] w-[70vh] rounded-full bg-[#8f7440]/15 blur-[150px]" />
+            <button onClick={() => setModalIndex(null)} className="absolute right-4 top-4 z-20 grid h-12 w-12 place-items-center rounded-full border border-white/25 bg-black/50 text-2xl text-white transition-colors hover:border-[#d7b66d] md:right-8 md:top-8" aria-label="Zamknij galerię">×</button>
+            <button onClick={() => moveModal(-1)} className="absolute left-3 top-1/2 z-20 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-white/25 bg-black/60 text-xl text-white transition-colors hover:border-[#d7b66d] md:left-8" aria-label="Poprzednie zdjęcie">←</button>
             <motion.div
               key={`${active}-${modalIndex}`}
               initial={{ opacity: 0, scale: 0.985 }} animate={{ opacity: 1, scale: 1 }}
@@ -191,7 +191,7 @@ export default function TechnologyShowcase() {
                 />
               </div>
             </motion.div>
-            <button onClick={() => moveModal(1)} className="absolute right-3 top-1/2 z-20 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-white/25 bg-black/60 text-xl text-white transition-colors hover:border-blue-500 md:right-8" aria-label="Następne zdjęcie">→</button>
+            <button onClick={() => moveModal(1)} className="absolute right-3 top-1/2 z-20 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-white/25 bg-black/60 text-xl text-white transition-colors hover:border-[#d7b66d] md:right-8" aria-label="Następne zdjęcie">→</button>
             <div className="absolute bottom-4 left-1/2 z-20 -translate-x-1/2 text-xs font-semibold tracking-[0.18em] text-white/65 md:bottom-7">
               {(modalIndex ?? 0) + 1} / {technology.photos.length}
             </div>

@@ -10,7 +10,7 @@ interface SpotlightCardProps {
   style?: React.CSSProperties
 }
 
-const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(19,19,186,0.07)', style }: SpotlightCardProps) => {
+const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(215,182,109,0.07)', style }: SpotlightCardProps) => {
   const divRef = useRef<HTMLDivElement>(null)
 
   const handleMouseMove = (e: React.MouseEvent) => {

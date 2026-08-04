@@ -22,7 +22,7 @@ const ARROW_BLACK = (
 
 const ARROW_YELLOW = (
   <svg width="16" height="9" viewBox="0 0 16 9" fill="none">
-    <path d="M12.01 3.48047H0V5.57278H12.01V8.71124L16 4.52663L12.01 0.34201V3.48047Z" fill="#3B82F6" />
+    <path d="M12.01 3.48047H0V5.57278H12.01V8.71124L16 4.52663L12.01 0.34201V3.48047Z" fill="#d7b66d" />
   </svg>
 )
 
@@ -123,7 +123,7 @@ export default function Home() {
                   left: "50%",
                   width: "38%",
                   height: "24px",
-                  background: "radial-gradient(ellipse at center, rgba(100,160,255,0.5) 0%, transparent 70%)",
+                  background: "radial-gradient(ellipse at center, rgba(215,182,109,0.5) 0%, transparent 70%)",
                   filter: "blur(10px)",
                   transformOrigin: "center",
                 }}
@@ -132,7 +132,7 @@ export default function Home() {
 
             {/* Text content */}
             <div className="relative max-w-6xl mx-auto w-full" style={{ zIndex: 2 }}>
-              <span className="block mb-4 md:absolute top-0 right-0 text-sm lg:text-lg font-semibold uppercase tracking-widest" style={{ fontFamily: "var(--font-inter), sans-serif", color: "#1313ba" }}>
+              <span className="block mb-4 md:absolute top-0 right-0 text-sm lg:text-lg font-semibold uppercase tracking-widest" style={{ fontFamily: "var(--font-inter), sans-serif", color: "#d7b66d" }}>
                 Technologia szkła
               </span>
               <h2 className="mb-8 md:mb-0 text-3xl sm:text-5xl md:text-6xl text-white font-heading font-extrabold uppercase" style={{ lineHeight: 1.1 }}>
@@ -148,7 +148,7 @@ export default function Home() {
                   backdropFilter: "blur(16px)",
                   WebkitBackdropFilter: "blur(16px)",
                   border: "1px solid rgba(255,255,255,0.18)",
-                  boxShadow: "0 4px 32px rgba(59,130,246,0.18)",
+                  boxShadow: "0 4px 32px rgba(215,182,109,0.18)",
                 }}
                 onMouseEnter={e => (e.currentTarget.style.background = "rgba(255,255,255,0.15)")}
                 onMouseLeave={e => (e.currentTarget.style.background = "rgba(255,255,255,0.08)")}
@@ -188,7 +188,7 @@ export default function Home() {
                   background: "rgba(255,255,255,0.08)",
                   backdropFilter: "blur(16px)",
                   border: "1px solid rgba(255,255,255,0.18)",
-                  boxShadow: "0 4px 32px rgba(59,130,246,0.18)",
+                  boxShadow: "0 4px 32px rgba(215,182,109,0.18)",
                 }}
               >
                 <svg className="mr-3" width="16" height="9" viewBox="0 0 16 9" fill="none">
@@ -241,15 +241,22 @@ export default function Home() {
             }
             .feature-card:hover {
               transform: translateY(-6px);
-              box-shadow: 0 16px 48px rgba(19,19,186,0.35), 0 2px 8px rgba(0,0,0,0.5);
-              border-color: rgba(19,19,186,0.5);
+              box-shadow: 0 16px 48px rgba(215,182,109,0.28), 0 2px 8px rgba(0,0,0,0.5);
+              border-color: rgba(215,182,109,0.5);
             }
             .tech-card {
-              transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease;
+              position: relative;
+              overflow: hidden;
+              border: 1px solid rgba(215,182,109,0.22);
+              border-radius: 32px;
+              background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(250,248,243,0.96));
+              box-shadow: 0 14px 40px rgba(35,28,15,0.055), inset 0 1px 0 rgba(255,255,255,0.9);
+              transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease, border-color 0.35s ease;
             }
             .tech-card:hover {
               transform: translateY(-6px);
-              box-shadow: 0 24px 80px rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.05);
+              border-color: rgba(215,182,109,0.58);
+              box-shadow: 0 28px 70px rgba(91,69,27,0.13), inset 0 1px 0 rgba(255,255,255,1);
             }
           `}</style>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -258,7 +265,7 @@ export default function Home() {
                 title: "Jakość zdobienia",
                 desc: "Utrzymujemy pozycję lidera w branży dzięki połączeniu światowej klasy wiedzy technicznej i najwyższej jakości nadrukom na szkle.",
                 icon: (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1313ba" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d7b66d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                     <path d="M9 12l2 2 4-4" />
                   </svg>
@@ -268,7 +275,7 @@ export default function Home() {
                 title: "Konkurencyjna cena",
                 desc: "Stosujemy konkurencyjne ceny oraz upusty dla stałych klientów, by jak najlepiej odpowiadać Państwa potrzebom biznesowym.",
                 icon: (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1313ba" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d7b66d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="10" />
                     <path d="M12 6v6l4 2" />
                     <path d="M16 8h-4a2 2 0 0 0 0 4h2a2 2 0 0 1 0 4H8" />
@@ -280,7 +287,7 @@ export default function Home() {
                 title: "Czas realizacji",
                 desc: "Najkrótsze terminy realizacji powierzonych nam zadań są naszym priorytetem. Dotrzymujemy terminów bez kompromisów.",
                 icon: (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1313ba" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d7b66d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="10" />
                     <polyline points="12 6 12 12 16 14" />
                   </svg>
@@ -290,7 +297,7 @@ export default function Home() {
                 title: "Obsługa klienta",
                 desc: "W trosce o naszych klientów dbamy o poufność i bezpieczeństwo danych oraz służymy pomocą w zakresie świadczonej usługi.",
                 icon: (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1313ba" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d7b66d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                     <circle cx="9" cy="7" r="4" />
                     <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
@@ -299,13 +306,13 @@ export default function Home() {
                 ),
               },
             ].map(({ title, desc, icon }) => (
-              <SpotlightCard key={title} className="p-6 md:p-10 flex flex-col gap-5 feature-card" spotlightColor="rgba(0,120,255,0.12)" style={{
+              <SpotlightCard key={title} className="p-6 md:p-10 flex flex-col gap-5 feature-card" spotlightColor="rgba(215,182,109,0.12)" style={{
                 background: "rgba(255,255,255,0.04)",
                 backdropFilter: "blur(24px) saturate(160%)",
                 WebkitBackdropFilter: "blur(24px) saturate(160%)",
                 boxShadow: "0 2px 24px rgba(0,0,0,0.4)",
               }}>
-                <div className="w-12 h-12 flex items-center justify-center" style={{ background: "rgba(19,19,186,0.15)", border: "1px solid rgba(19,19,186,0.4)" }}>
+                <div className="w-12 h-12 flex items-center justify-center" style={{ background: "rgba(215,182,109,0.15)", border: "1px solid rgba(215,182,109,0.4)" }}>
                   {icon}
                 </div>
                 <h3 className="text-white font-extrabold uppercase" style={{ fontFamily: "var(--font-syncopate), sans-serif", fontSize: "13px", letterSpacing: "0.05em" }}>
@@ -324,7 +331,7 @@ export default function Home() {
       <TechnologyShowcase />
 
       {/* ─── TECHNOLOGIES SECTION ─── */}
-      <section id="technologie" className="bg-gray-50 py-24 overflow-hidden">
+      <section id="technologie" className="py-24 overflow-hidden" style={{ background: "linear-gradient(180deg, #f6f4ef 0%, #efede7 100%)" }}>
         <div className="container mx-auto px-6 lg:px-8">
           <p className="uppercase text-black mb-10 md:mb-16" style={{ fontFamily: "var(--font-syncopate), sans-serif", fontWeight: 800, fontSize: "clamp(26px, 4vw, 42px)", lineHeight: 1.1 }}>
             Oferta /<br />Nasze technologie
@@ -362,12 +369,12 @@ export default function Home() {
                 body: "Wprowadziliśmy możliwość wstawienia tzw. okna widokowego, które oprócz walorów estetycznych nadaje oryginalność produktowi. Podkreśla główny element poprzez jego powiększenie dzięki właściwościom optycznym pokrycia.",
               },
             ].map(({ n, title, body }) => (
-              <SpotlightCard key={n} className="bg-white p-6 md:p-10 flex flex-col gap-5 tech-card" spotlightColor="rgba(0,180,240,0.12)">
-                <span className="text-xs font-semibold" style={{ color: "#1313ba", fontFamily: "var(--font-inter), sans-serif", letterSpacing: "0.15em" }}>{n}</span>
+              <SpotlightCard key={n} className="p-7 md:p-10 flex min-h-[330px] flex-col gap-5 tech-card" spotlightColor="rgba(215,182,109,0.14)">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d7b66d]/40 bg-[#d7b66d]/10 text-xs font-semibold" style={{ color: "#9b7b37", fontFamily: "var(--font-inter), sans-serif", letterSpacing: "0.08em" }}>{n}</span>
                 <h3 className="text-base font-extrabold uppercase text-black" style={{ fontFamily: "var(--font-syncopate), sans-serif", lineHeight: 1.4, fontSize: "13px" }}>
                   {title}
                 </h3>
-                <p className="text-sm text-gray-500 leading-relaxed" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
+                <p className="text-sm leading-relaxed" style={{ color: "#6f6a61", fontFamily: "var(--font-inter), sans-serif" }}>
                   {body}
                 </p>
               </SpotlightCard>
@@ -387,10 +394,10 @@ export default function Home() {
               <div className="mb-12">
                 <span className="inline-block mb-5">
                   <svg width="27" height="34" viewBox="0 0 27 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3.53923 5.0709C8.57209 -0.348133 17.1109 -0.722452 22.612 4.23495C28.1139 9.19271 28.4928 17.6049 23.4607 23.0239L13.4996 33.7485L3.53923 23.0239C-1.17974 17.942 -1.17974 10.1521 3.53923 5.0709ZM5.93178 20.8678L13.4996 29.0166L21.0678 20.8678C24.8913 16.7503 24.6032 10.3593 20.4229 6.5918C16.2431 2.82463 9.75528 3.10984 5.93178 7.22628C2.34514 11.0872 2.34514 17.0062 5.93178 20.8678ZM16.4639 14.0467C16.4639 12.4342 15.1365 11.1266 13.4996 11.1266C11.8627 11.1266 10.5345 12.4342 10.5345 14.0467C10.5345 15.6599 11.8627 16.9675 13.4996 16.9675C15.1365 16.9675 16.4639 15.6599 16.4639 14.0467Z" fill="#1313ba" />
+                    <path d="M3.53923 5.0709C8.57209 -0.348133 17.1109 -0.722452 22.612 4.23495C28.1139 9.19271 28.4928 17.6049 23.4607 23.0239L13.4996 33.7485L3.53923 23.0239C-1.17974 17.942 -1.17974 10.1521 3.53923 5.0709ZM5.93178 20.8678L13.4996 29.0166L21.0678 20.8678C24.8913 16.7503 24.6032 10.3593 20.4229 6.5918C16.2431 2.82463 9.75528 3.10984 5.93178 7.22628C2.34514 11.0872 2.34514 17.0062 5.93178 20.8678ZM16.4639 14.0467C16.4639 12.4342 15.1365 11.1266 13.4996 11.1266C11.8627 11.1266 10.5345 12.4342 10.5345 14.0467C10.5345 15.6599 11.8627 16.9675 13.4996 16.9675C15.1365 16.9675 16.4639 15.6599 16.4639 14.0467Z" fill="#d7b66d" />
                   </svg>
                 </span>
-                <h3 className="mb-2 text-xs uppercase tracking-widest" style={{ color: "#1313ba", fontFamily: "var(--font-inter), sans-serif" }}>Adres</h3>
+                <h3 className="mb-2 text-xs uppercase tracking-widest" style={{ color: "#d7b66d", fontFamily: "var(--font-inter), sans-serif" }}>Adres</h3>
                 <p className="text-xl md:text-2xl text-white font-extrabold uppercase" style={{ fontFamily: "var(--font-syncopate), sans-serif", lineHeight: 1.3 }}>
                   ul. Zbożowa 10<br />
                   37-500 Jarosław
@@ -399,12 +406,12 @@ export default function Home() {
               <div>
                 <span className="inline-block mb-5">
                   <svg width="33" height="28" viewBox="0 0 33 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="1" y="1" width="31" height="26" rx="2" stroke="#1313ba" strokeWidth="1.5" />
-                    <path d="M1 5l15.5 11L32 5" stroke="#1313ba" strokeWidth="1.5" strokeLinecap="round" />
+                    <rect x="1" y="1" width="31" height="26" rx="2" stroke="#d7b66d" strokeWidth="1.5" />
+                    <path d="M1 5l15.5 11L32 5" stroke="#d7b66d" strokeWidth="1.5" strokeLinecap="round" />
                   </svg>
                 </span>
-                <h3 className="mb-2 text-xs uppercase tracking-widest" style={{ color: "#1313ba", fontFamily: "var(--font-inter), sans-serif" }}>Kontakt</h3>
-                <a className="block text-lg md:text-2xl text-white font-extrabold hover:text-blue-400 transition-colors break-all" href="mailto:mateusz.lorenc@glassivdeco.com" style={{ fontFamily: "var(--font-syncopate), sans-serif" }}>
+                <h3 className="mb-2 text-xs uppercase tracking-widest" style={{ color: "#d7b66d", fontFamily: "var(--font-inter), sans-serif" }}>Kontakt</h3>
+                <a className="block text-lg md:text-2xl text-white font-extrabold hover:text-[#d7b66d] transition-colors break-all" href="mailto:mateusz.lorenc@glassivdeco.com" style={{ fontFamily: "var(--font-syncopate), sans-serif" }}>
                   mateusz.lorenc@glassivdeco.com
                 </a>
                 <p className="text-xl md:text-2xl text-white font-extrabold uppercase mt-2" style={{ fontFamily: "var(--font-syncopate), sans-serif" }}>
@@ -426,7 +433,7 @@ export default function Home() {
                   type="email"
                   placeholder="Adres e-mail"
                   style={{
-                    borderBottom: "1px solid #1313ba",
+                    borderBottom: "1px solid #d7b66d",
                     fontFamily: "var(--font-syncopate), sans-serif",
                     fontSize: "12px",
                     color: "rgba(255,255,255,0.7)",
@@ -437,7 +444,7 @@ export default function Home() {
                   className="w-full h-36 py-3 outline-none resize-none bg-transparent"
                   placeholder="Twoja wiadomość..."
                   style={{
-                    borderBottom: "1px solid #1313ba",
+                    borderBottom: "1px solid #d7b66d",
                     fontFamily: "var(--font-syncopate), sans-serif",
                     fontSize: "12px",
                     color: "rgba(255,255,255,0.7)",
@@ -445,7 +452,7 @@ export default function Home() {
                   }}
                 />
                 <label className="flex items-start gap-3">
-                  <input type="checkbox" className="mt-1 accent-blue-600" />
+                  <input type="checkbox" className="mt-1 accent-[#d7b66d]" />
                   <span style={{ fontFamily: "var(--font-syncopate), sans-serif", fontSize: "10px", letterSpacing: "0.04em", color: "rgba(255,255,255,0.5)" }}>
                     Akceptuję{" "}
                     <a className="hover:underline" style={{ color: "rgba(255,255,255,0.7)" }} href="#">politykę prywatności</a>{" "}
@@ -460,7 +467,7 @@ export default function Home() {
                     backdropFilter: "blur(16px)",
                     WebkitBackdropFilter: "blur(16px)",
                     border: "1px solid rgba(255,255,255,0.18)",
-                    boxShadow: "0 4px 32px rgba(59,130,246,0.18)",
+                    boxShadow: "0 4px 32px rgba(215,182,109,0.18)",
                   }}
                   onMouseEnter={e => (e.currentTarget.style.background = "rgba(255,255,255,0.15)")}
                   onMouseLeave={e => (e.currentTarget.style.background = "rgba(255,255,255,0.08)")}

@@ -46,14 +46,14 @@
   background:
     linear-gradient(var(--card-bg, #06061a) 0 100%) padding-box,
     linear-gradient(rgb(255 255 255 / 0%) 0% 100%) border-box,
-    var(--gradient-one, radial-gradient(at 80% 55%, #1313ba 0px, transparent 50%)) border-box,
-    var(--gradient-two, radial-gradient(at 69% 34%, #2626d4 0px, transparent 50%)) border-box,
-    var(--gradient-three, radial-gradient(at 8% 6%, #0d0d8a 0px, transparent 50%)) border-box,
+    var(--gradient-one, radial-gradient(at 80% 55%, #d7b66d 0px, transparent 50%)) border-box,
+    var(--gradient-two, radial-gradient(at 69% 34%, #ead398 0px, transparent 50%)) border-box,
+    var(--gradient-three, radial-gradient(at 8% 6%, #8f7440 0px, transparent 50%)) border-box,
     var(--gradient-four, radial-gradient(at 41% 38%, #1a1ae0 0px, transparent 50%)) border-box,
     var(--gradient-five, radial-gradient(at 86% 85%, #3333cc 0px, transparent 50%)) border-box,
     var(--gradient-six, radial-gradient(at 82% 18%, #0808a0 0px, transparent 50%)) border-box,
     var(--gradient-seven, radial-gradient(at 51% 4%, #2020c8 0px, transparent 50%)) border-box,
-    var(--gradient-base, linear-gradient(#1313ba 0 100%)) border-box;
+    var(--gradient-base, linear-gradient(#d7b66d 0 100%)) border-box;
 
   opacity: calc((var(--edge-proximity) - var(--color-sensitivity)) / (100 - var(--color-sensitivity)));
 
