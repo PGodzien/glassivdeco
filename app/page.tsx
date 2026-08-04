@@ -5,12 +5,12 @@ import Image from "next/image"
 import { useState } from "react"
 
 const DepthGallery = dynamic(() => import("./components/DepthGallery"), { ssr: false })
+const TechnologyShowcase = dynamic(() => import("./components/TechnologyShowcase"), { ssr: false })
 const Prism = dynamic(() => import("./components/Prism"), { ssr: false })
 const SpotlightCard = dynamic(() => import("./components/SpotlightCard"), { ssr: false })
 
 const NAV_LINKS = [
   { label: "Realizacje", href: "#realizacje" },
-  { label: "O nas", href: "#o-nas" },
   { label: "Oferta / Technologie", href: "#technologie" },
 ]
 
@@ -209,7 +209,7 @@ export default function Home() {
       </section>
 
       {/* ─── ABOUT SECTION ─── */}
-      <section id="o-nas" className="py-20 md:py-32 overflow-hidden relative" style={{ background: "radial-gradient(ellipse at 20% 60%, #001d4a 0%, #000d1f 50%, #000 80%)" }}>
+      <section id="o-nas" className="hidden py-20 md:py-32 overflow-hidden relative" style={{ background: "radial-gradient(ellipse at 20% 60%, #001d4a 0%, #000d1f 50%, #000 80%)" }}>
         {/* Sygnet tło */}
         <div className="absolute pointer-events-none select-none" style={{ right: "-8%", bottom: "-10%", width: "55%", opacity: 0.07, zIndex: 0 }}>
           <Image src="/sygnet.svg" alt="" width={900} height={788} style={{ width: "100%", height: "auto" }} />
@@ -319,6 +319,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ─── TECHNOLOGY SHOWCASE ─── */}
+      <TechnologyShowcase />
 
       {/* ─── TECHNOLOGIES SECTION ─── */}
       <section id="technologie" className="bg-gray-50 py-24 overflow-hidden">
