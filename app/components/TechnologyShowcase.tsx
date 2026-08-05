@@ -221,7 +221,7 @@ export default function TechnologyShowcase() {
               key={`${active}-${modalIndex}`}
               initial={{ opacity: 0, scale: 0.985 }} animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.28 }}
-              className="relative h-[78vh] w-[86vw] max-w-6xl overflow-hidden rounded-3xl bg-white/[0.09] shadow-[inset_0_1px_0_rgba(255,255,255,.12),0_40px_120px_rgba(0,0,0,.5)] backdrop-blur-3xl"
+              className="relative h-[78vh] w-[86vw] max-w-6xl"
             >
               <div className="absolute inset-4 flex items-center justify-center md:inset-8">
                 {/* Natural image bounds make the rounding follow the visible photo, not its contain box. */}
