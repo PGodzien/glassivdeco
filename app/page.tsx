@@ -59,6 +59,15 @@ export default function Home() {
           />
         </div>
 
+        {/* Dark fade keeps the lower edge grounded and prevents a pale glow. */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-[38%] pointer-events-none"
+          style={{
+            zIndex: 1,
+            background: "linear-gradient(to top, #000 0%, rgba(0,0,0,0.88) 28%, rgba(0,0,0,0.42) 68%, transparent 100%)",
+          }}
+        />
+
         {/* NAV */}
         <nav
           className="relative z-10 flex px-5 lg:px-16 justify-between border-b border-white/10"
@@ -113,7 +122,25 @@ export default function Home() {
             {/* Bottle — behind Prism */}
             <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center" style={{ zIndex: 0 }}>
               <div className="relative bottle-float" style={{ width: "100%", height: "100%" }}>
-                <Image src="/bottle.png" alt="" fill className="object-contain object-center bottle-img" style={{ transformOrigin: "center center" }} priority />
+                <Image src="/glassivdeco-bottle-hero-clean.png" alt="Czarna butelka demonstracyjna GlassivDeco ze złotym nadrukiem" fill className="object-contain object-center bottle-img" style={{ transformOrigin: "center center" }} priority />
+                <span
+                  className="bottle-logo-overlay"
+                  aria-hidden="true"
+                  style={{
+                    position: "absolute",
+                    left: "50%",
+                    top: "60%",
+                    zIndex: 2,
+                    display: "block",
+                    width: "clamp(105px, 10vw, 165px)",
+                    height: "82px",
+                    transform: "translate(-50%, -50%)",
+                    backgroundColor: "#d7b66d",
+                    WebkitMask: 'url("/logoglassivdeco-white.svg") center / contain no-repeat',
+                    mask: 'url("/logoglassivdeco-white.svg") center / contain no-repeat',
+                    filter: "drop-shadow(0 0 10px rgba(215, 182, 109, 0.22))",
+                  }}
+                />
               </div>
               {/* Shadow */}
               <div
@@ -124,7 +151,7 @@ export default function Home() {
                   left: "50%",
                   width: "38%",
                   height: "24px",
-                  background: "radial-gradient(ellipse at center, rgba(215,182,109,0.5) 0%, transparent 70%)",
+                  background: "radial-gradient(ellipse at center, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.5) 42%, transparent 72%)",
                   filter: "blur(10px)",
                   transformOrigin: "center",
                 }}

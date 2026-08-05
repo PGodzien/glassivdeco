@@ -46,8 +46,24 @@ h1, h2, h3, h4, h5, h6 {
 .bottle-float {
   animation: float 5s ease-in-out infinite;
 }
-.bottle-img { transform: scale(2.2); }
-@media (max-width: 768px) { .bottle-img { transform: scale(2.6); } }
+.bottle-img { transform: scale(2.7) !important; }
+.bottle-logo-overlay {
+  position: absolute;
+  left: 50%;
+  top: 57%;
+  z-index: 2;
+  width: clamp(105px, 10vw, 165px);
+  aspect-ratio: 2 / 1;
+  transform: translate(-50%, -50%);
+  background: #d7b66d;
+  -webkit-mask: url("/logoglassivdeco-white.svg") center / contain no-repeat;
+  mask: url("/logoglassivdeco-white.svg") center / contain no-repeat;
+  filter: drop-shadow(0 0 10px rgba(215, 182, 109, 0.22));
+}
+@media (max-width: 768px) {
+  .bottle-img { transform: scale(3.05) !important; }
+  .bottle-logo-overlay { width: 112px; top: 57%; }
+}
 
 .bottle-shadow {
   animation: shadow-float 5s ease-in-out infinite;

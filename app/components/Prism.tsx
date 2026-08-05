@@ -146,9 +146,9 @@ const Prism = ({
         col=clamp(mix(vec3(L),col,uSaturation),0.0,1.0);
         if(abs(uHueShift)>0.0001){ col=clamp(hueRotation(uHueShift)*col,0.0,1.0); }
         float intensity=max(max(col.r,col.g),col.b);
-        vec3 gold=vec3(0.8431,0.7137,0.4275);
-        vec3 warmHighlight=vec3(1.0,0.945,0.80);
-        col=mix(gold*intensity,warmHighlight*intensity,smoothstep(0.72,1.0,intensity));
+        vec3 silver=vec3(0.48,0.58,0.64);
+        vec3 pearlHighlight=vec3(0.92,0.96,1.0);
+        col=mix(silver*intensity,pearlHighlight*intensity,smoothstep(0.72,1.0,intensity));
         gl_FragColor=vec4(col,o.a);
       }
     `
