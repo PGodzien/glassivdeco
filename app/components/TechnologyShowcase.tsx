@@ -116,9 +116,14 @@ export default function TechnologyShowcase() {
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          <div className="relative z-20 flex min-h-[340px] w-full flex-col justify-center overflow-hidden rounded-[2.5rem] bg-[#f3f1eb] px-7 py-10 lg:h-auto lg:w-[40%] lg:rounded-[3.25rem] lg:px-10 xl:px-12">
-            <div className="pointer-events-none absolute -bottom-24 -left-20 h-72 w-72 rounded-full bg-[#d7b66d]/16 blur-[90px]" />
-            <div className="relative z-10 flex flex-col gap-3">
+          <div className="relative z-20 flex min-h-[340px] w-full flex-col justify-center bg-white px-7 py-10 lg:h-auto lg:w-[40%] lg:px-10 xl:px-12">
+            <div className="relative z-10 w-full max-w-md">
+              <div className="mb-8 flex items-center gap-4">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.24em] text-black/45">Technologie</span>
+                <span className="h-px flex-1 bg-black/12" />
+                <span className="text-[10px] font-semibold tracking-[0.2em] text-[#9b7b37]">{technology.number} / 04</span>
+              </div>
+              <div className="flex flex-col gap-2.5">
             {TECHNOLOGIES.map((item, index) => {
               const isActive = index === active
               return (
@@ -127,7 +132,7 @@ export default function TechnologyShowcase() {
                   type="button"
                   onFocus={() => setActive(index)}
                   onClick={() => setActive(index)}
-                  className={`group relative flex w-fit max-w-full items-center gap-4 rounded-full border px-5 py-3 text-left transition-all duration-500 md:px-7 ${isActive ? "border-[#d7b66d] bg-[#d7b66d] text-black shadow-[0_12px_35px_rgba(143,116,64,.22)]" : "border-black/15 bg-white/55 text-black/48 hover:border-black/30 hover:text-black"}`}
+                  className={`group relative flex w-full items-center gap-4 rounded-full border px-5 py-3.5 text-left transition-all duration-500 md:px-7 ${isActive ? "border-[#d7b66d] bg-[#d7b66d] text-black shadow-[0_12px_35px_rgba(143,116,64,.2)]" : "border-transparent bg-[#f5f3ee] text-black/48 hover:bg-[#eeebe3] hover:text-black"}`}
                   aria-pressed={isActive}
                 >
                   <span className={`w-7 shrink-0 text-[10px] font-semibold tracking-[0.18em] ${isActive ? "text-black/65" : "text-black/30"}`}>
@@ -141,6 +146,15 @@ export default function TechnologyShowcase() {
                 </button>
               )
             })}
+              </div>
+              <motion.p
+                key={technology.number}
+                initial={{ opacity: 0, y: 5 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-7 max-w-sm text-sm leading-relaxed text-black/45"
+              >
+                {technology.detail}
+              </motion.p>
             </div>
           </div>
 
