@@ -52,8 +52,8 @@ export default function OfferTechnologyIndex() {
           </p>
         </div>
 
-        <div className="grid min-h-[610px] border-y border-white/15 lg:grid-cols-[58%_42%]">
-          <div className="order-2 lg:pl-12">
+        <div className="grid min-h-[610px] border-y border-white/15 lg:grid-cols-2">
+          <div className="order-2 lg:pl-10 xl:pl-12">
             {ITEMS.map((item, index) => {
               const isActive = index === active
               return (

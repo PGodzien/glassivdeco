@@ -375,7 +375,7 @@ export default function Home() {
                   </svg>
                 </span>
                 <h3 className="mb-2 text-xs uppercase tracking-widest" style={{ color: "#d7b66d", fontFamily: "var(--font-inter), sans-serif" }}>Kontakt</h3>
-                <a className="block text-lg md:text-2xl text-white font-extrabold hover:text-[#d7b66d] transition-colors break-all" href="mailto:mateusz.lorenc@glassivdeco.com" style={{ fontFamily: "var(--font-syncopate), sans-serif" }}>
+                <a className="block whitespace-nowrap text-white font-extrabold hover:text-[#d7b66d] transition-colors" href="mailto:mateusz.lorenc@glassivdeco.com" style={{ fontFamily: "var(--font-syncopate), sans-serif", fontSize: "clamp(0.72rem, 1.3vw, 1.1rem)", letterSpacing: "-0.025em" }}>
                   mateusz.lorenc@glassivdeco.com
                 </a>
                 <p className="text-xl md:text-2xl text-white font-extrabold uppercase mt-2" style={{ fontFamily: "var(--font-syncopate), sans-serif" }}>
