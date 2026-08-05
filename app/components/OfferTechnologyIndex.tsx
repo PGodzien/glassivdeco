@@ -41,18 +41,18 @@ export default function OfferTechnologyIndex() {
   const selected = ITEMS[active]
 
   return (
-    <section id="technologie" className="overflow-hidden bg-[#f2f0ea] py-20 text-black md:py-28">
+    <section id="technologie" className="overflow-hidden bg-black py-20 text-white md:py-28">
       <div className="mx-auto max-w-[1500px] px-5 md:px-8 lg:px-16">
         <div className="mb-10 flex items-end justify-between gap-8 md:mb-14">
           <h2 className="max-w-3xl text-2xl font-extrabold uppercase leading-[1.15] md:text-4xl">
             Oferta /<br />Nasze technologie
           </h2>
-          <p className="hidden max-w-md text-right text-sm leading-relaxed text-black/45 md:block">
+          <p className="hidden max-w-md text-right text-sm leading-relaxed text-white/45 md:block">
             Sześć specjalistycznych procesów. Jeden cel: szkło, które wyróżnia produkt i wzmacnia charakter marki.
           </p>
         </div>
 
-        <div className="grid min-h-[610px] border-y border-black/20 lg:grid-cols-[58%_42%]">
+        <div className="grid min-h-[610px] border-y border-white/15 lg:grid-cols-[58%_42%]">
           <div className="order-2 lg:pl-12">
             {ITEMS.map((item, index) => {
               const isActive = index === active
@@ -64,15 +64,15 @@ export default function OfferTechnologyIndex() {
                   onFocus={() => setActive(index)}
                   onClick={() => setActive(index)}
                   aria-pressed={isActive}
-                  className="group relative flex min-h-[101px] w-full items-center gap-5 border-b border-black/15 py-4 text-left last:border-b-0"
+                  className="group relative flex min-h-[101px] w-full items-center gap-5 border-b border-white/12 py-4 text-left last:border-b-0"
                 >
-                  <span className={`w-9 shrink-0 text-xs font-semibold tracking-[0.18em] transition-colors ${isActive ? "text-[#9b7b37]" : "text-black/30"}`}>
+                  <span className={`w-9 shrink-0 text-xs font-semibold tracking-[0.18em] transition-colors ${isActive ? "text-[#d7b66d]" : "text-white/30"}`}>
                     {item.number}
                   </span>
-                  <span className={`max-w-2xl text-xs font-bold uppercase leading-relaxed transition-all duration-300 md:text-sm ${isActive ? "translate-x-2 text-black" : "text-black/48 group-hover:text-black/70"}`}>
+                  <span className={`max-w-2xl text-xs font-bold uppercase leading-relaxed transition-all duration-300 md:text-sm ${isActive ? "translate-x-2 text-white" : "text-white/45 group-hover:text-white/70"}`}>
                     {item.title}
                   </span>
-                  <span className={`ml-auto shrink-0 text-xl transition-all duration-300 ${isActive ? "translate-x-0 text-[#9b7b37] opacity-100" : "-translate-x-2 text-black/20 opacity-0"}`}>→</span>
+                  <span className={`ml-auto shrink-0 text-xl transition-all duration-300 ${isActive ? "translate-x-0 text-[#d7b66d] opacity-100" : "-translate-x-2 text-white/20 opacity-0"}`}>→</span>
                   <motion.span
                     className="absolute bottom-[-1px] left-0 h-px w-full origin-left bg-[#d7b66d]"
                     animate={{ scaleX: isActive ? 1 : 0 }}
@@ -83,7 +83,7 @@ export default function OfferTechnologyIndex() {
             })}
           </div>
 
-          <div className="relative order-1 hidden min-h-[610px] overflow-hidden border-r border-black/20 bg-[#11110f] p-10 text-white lg:flex lg:flex-col lg:justify-between xl:p-14">
+          <div className="relative order-1 hidden min-h-[610px] overflow-hidden border-r border-white/15 bg-[#11110f] p-10 text-white lg:flex lg:flex-col lg:justify-between xl:p-14">
             <div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#d7b66d]/12 blur-[100px]" />
             <span className="relative text-xs font-semibold uppercase tracking-[0.22em] text-[#d7b66d]">Szczegóły technologii</span>
             <AnimatePresence mode="wait">

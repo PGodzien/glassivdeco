@@ -60,6 +60,7 @@ const TECHNOLOGIES = [
 
 export default function TechnologyShowcase() {
   const [active, setActive] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
   const [modalIndex, setModalIndex] = useState<number | null>(null)
   const technology = TECHNOLOGIES[active]
   const activePhoto = modalIndex === null ? null : technology.photos[modalIndex]
@@ -83,79 +84,105 @@ export default function TechnologyShowcase() {
     }
   }, [modalIndex, technology.photos.length])
 
+  useEffect(() => {
+    if (isPaused || modalIndex !== null) return
+    const interval = window.setInterval(() => setActive((current) => (current + 1) % TECHNOLOGIES.length), 4200)
+    return () => window.clearInterval(interval)
+  }, [isPaused, modalIndex])
+
+  const cardStatus = (index: number) => {
+    const diff = (index - active + TECHNOLOGIES.length) % TECHNOLOGIES.length
+    if (diff === 0) return "active"
+    if (diff === 1) return "next"
+    if (diff === TECHNOLOGIES.length - 1) return "prev"
+    return "hidden"
+  }
+
   return (
-    <section className="overflow-hidden bg-black py-20 md:py-28" aria-labelledby="showcase-title">
+    <section className="overflow-hidden bg-white py-12 md:py-14" aria-labelledby="showcase-title">
       <div className="mx-auto max-w-[1500px] px-5 md:px-8 lg:px-16">
-        <div className="mb-10 flex items-end justify-between gap-8 md:mb-14">
+        <div className="mb-7 flex items-end justify-between gap-8 md:mb-9 lg:w-[40%]">
           <div>
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-[#d7b66d]">Wybrane realizacje</p>
-            <h2 id="showcase-title" className="max-w-3xl text-2xl font-extrabold uppercase leading-[1.15] text-white md:text-4xl">
-              Jedno szkło.<br />Wiele możliwości.
+            <h2 id="showcase-title" className="max-w-3xl text-2xl font-extrabold uppercase leading-[1.12] text-black md:text-3xl lg:text-[32px]">
+              <span className="block whitespace-nowrap">Jedno szkło.</span>
+              <span className="block whitespace-nowrap">Wiele możliwości.</span>
             </h2>
           </div>
-          <span className="hidden text-xs uppercase tracking-[0.2em] text-white/35 md:block">Najedź, aby odkryć</span>
         </div>
 
-        <div className="grid min-h-[610px] grid-cols-1 overflow-hidden border-y border-white/15 lg:grid-cols-[42%_58%]">
-          <div className="order-2 flex flex-col justify-center lg:order-1 lg:border-r lg:border-white/15 lg:pr-12">
+        <div
+          className="relative flex min-h-[650px] flex-col overflow-visible bg-white lg:h-[clamp(500px,62vh,620px)] lg:min-h-0 lg:flex-row"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          <div className="relative z-20 flex min-h-[340px] w-full flex-col justify-center overflow-hidden rounded-[2.5rem] bg-[#f3f1eb] px-7 py-10 lg:h-auto lg:w-[40%] lg:rounded-[3.25rem] lg:px-10 xl:px-12">
+            <div className="pointer-events-none absolute -bottom-24 -left-20 h-72 w-72 rounded-full bg-[#d7b66d]/16 blur-[90px]" />
+            <div className="relative z-10 flex flex-col gap-3">
             {TECHNOLOGIES.map((item, index) => {
               const isActive = index === active
               return (
                 <button
                   key={item.number}
                   type="button"
-                  onMouseEnter={() => setActive(index)}
                   onFocus={() => setActive(index)}
                   onClick={() => setActive(index)}
-                  className="group relative flex min-h-[118px] w-full items-center gap-5 border-b border-white/10 py-5 text-left last:border-b-0 lg:min-h-[132px]"
+                  className={`group relative flex w-fit max-w-full items-center gap-4 rounded-full border px-5 py-3 text-left transition-all duration-500 md:px-7 ${isActive ? "border-[#d7b66d] bg-[#d7b66d] text-black shadow-[0_12px_35px_rgba(143,116,64,.22)]" : "border-black/15 bg-white/55 text-black/48 hover:border-black/30 hover:text-black"}`}
                   aria-pressed={isActive}
                 >
-                  <motion.span
-                    animate={{ color: isActive ? "#d7b66d" : "rgba(255,255,255,.35)" }}
-                    className="w-8 shrink-0 text-xs font-semibold tracking-[0.18em]"
-                  >
+                  <span className={`w-7 shrink-0 text-[10px] font-semibold tracking-[0.18em] ${isActive ? "text-black/65" : "text-black/30"}`}>
                     {item.number}
-                  </motion.span>
-                  <span className="min-w-0">
-                    <span className={`block text-sm font-bold uppercase leading-snug transition-colors duration-300 md:text-base ${isActive ? "text-white" : "text-white/45 group-hover:text-white/75"}`}>
+                  </span>
+                  <span className="min-w-0 whitespace-nowrap">
+                    <span className="block text-xs font-bold uppercase leading-snug tracking-[0.04em] md:text-sm">
                       {item.name}
                     </span>
-                    <span className={`mt-2 block text-sm transition-all duration-300 ${isActive ? "translate-y-0 text-white/50 opacity-100" : "translate-y-1 text-white/30 opacity-0"}`}>
-                      {item.detail}
-                    </span>
                   </span>
-                  <motion.span
-                    animate={{ scaleX: isActive ? 1 : 0 }}
-                    transition={{ duration: 0.35, ease: "easeOut" }}
-                    className="absolute bottom-[-1px] left-0 h-px w-full origin-left bg-[#d7b66d]"
-                  />
                 </button>
               )
             })}
+            </div>
           </div>
 
-          <div className="relative order-1 h-[430px] overflow-hidden bg-white lg:order-2 lg:h-auto">
-            <AnimatePresence initial={false} mode="sync">
-              <motion.div
-                key={technology.number}
-                initial={{ opacity: 0, scale: 1.025 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ opacity: { duration: 0.42 }, scale: { duration: 0.8, ease: "easeOut" } }}
-                className="absolute inset-0 cursor-zoom-in overflow-hidden bg-white"
-                onClick={() => setModalIndex(0)}
-                role="button"
-                tabIndex={0}
-                aria-label={`Otwórz galerię: ${technology.name}`}
-                onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") setModalIndex(0) }}
-              >
-                <Image src={technology.photos[0][0]} alt={technology.photos[0][1]} fill className="object-contain" sizes="(max-width: 1024px) 100vw, 58vw" />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent" />
-              </motion.div>
-            </AnimatePresence>
-            <div className="absolute bottom-6 left-6 right-6 z-10 flex items-end justify-between md:bottom-8 md:left-8 md:right-8">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">GlassivDeco / {technology.number}</span>
-              <span className="text-5xl font-light text-white/20 md:text-7xl">{technology.number}</span>
+          <div className="relative flex min-h-[500px] flex-1 items-center justify-center overflow-visible bg-white px-6 py-10 md:px-12 lg:-mt-[132px] lg:h-[calc(100%+132px)] lg:min-h-0 lg:px-8 lg:py-0">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(215,182,109,.14),transparent_50%)]" />
+            <div className="relative aspect-[4/5] w-full max-w-[430px] lg:h-full lg:max-h-none lg:w-auto">
+              {TECHNOLOGIES.map((item, index) => {
+                const status = cardStatus(index)
+                const isActive = status === "active"
+                const isPrev = status === "prev"
+                const isNext = status === "next"
+                return (
+                  <motion.button
+                    key={item.number}
+                    type="button"
+                    initial={false}
+                    animate={{
+                      x: isActive ? 0 : isPrev ? -82 : isNext ? 82 : 0,
+                      y: isActive ? 0 : 12,
+                      scale: isActive ? 1 : isPrev || isNext ? 0.86 : 0.72,
+                      opacity: isActive ? 1 : isPrev || isNext ? 0.3 : 0,
+                      rotate: isPrev ? -3.5 : isNext ? 3.5 : 0,
+                      zIndex: isActive ? 20 : isPrev || isNext ? 10 : 0,
+                    }}
+                    transition={{ type: "spring", stiffness: 250, damping: 27, mass: 0.85 }}
+                    className={`absolute inset-0 overflow-hidden rounded-[2rem] bg-[#e9e7e2] text-left shadow-[0_28px_70px_rgba(0,0,0,.22)] md:rounded-[2.5rem] ${isActive ? "cursor-zoom-in" : "pointer-events-none"}`}
+                    onClick={() => isActive && setModalIndex(0)}
+                    aria-label={isActive ? `Otwórz galerię: ${item.name}` : undefined}
+                    tabIndex={isActive ? 0 : -1}
+                  >
+                    <Image src={item.photos[0][0]} alt={item.photos[0][1]} fill className="object-cover" sizes="(max-width: 1024px) 80vw, 420px" />
+                    {isActive && (
+                      <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} className="absolute inset-x-0 bottom-0 z-10 border-t border-white/30 bg-black/25 px-7 pb-8 pt-6 shadow-[0_-16px_45px_rgba(0,0,0,.12),inset_0_1px_0_rgba(255,255,255,.18)] backdrop-blur-xl md:px-9 md:pb-10 md:pt-7">
+                        <span className="mb-3 block text-[10px] font-semibold uppercase tracking-[0.2em] text-white/85">
+                          {item.number} • {item.name}
+                        </span>
+                        <p className="max-w-xs text-lg font-medium leading-snug text-white drop-shadow-sm md:text-xl">{item.detail}</p>
+                      </motion.div>
+                    )}
+                  </motion.button>
+                )
+              })}
             </div>
           </div>
         </div>
