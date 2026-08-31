@@ -60,7 +60,6 @@ const TECHNOLOGIES = [
 
 export default function TechnologyShowcase() {
   const [active, setActive] = useState(0)
-  const [isPaused, setIsPaused] = useState(false)
   const [modalIndex, setModalIndex] = useState<number | null>(null)
   const technology = TECHNOLOGIES[active]
   const activePhoto = modalIndex === null ? null : technology.photos[modalIndex]
@@ -83,12 +82,6 @@ export default function TechnologyShowcase() {
       window.removeEventListener("keydown", handleKey)
     }
   }, [modalIndex, technology.photos.length])
-
-  useEffect(() => {
-    if (isPaused || modalIndex !== null) return
-    const interval = window.setInterval(() => setActive((current) => (current + 1) % TECHNOLOGIES.length), 4200)
-    return () => window.clearInterval(interval)
-  }, [isPaused, modalIndex])
 
   const cardStatus = (index: number) => {
     const diff = (index - active + TECHNOLOGIES.length) % TECHNOLOGIES.length
@@ -113,8 +106,6 @@ export default function TechnologyShowcase() {
 
         <div
           className="relative flex min-h-[650px] flex-col overflow-visible bg-white lg:h-[clamp(500px,62vh,620px)] lg:min-h-0 lg:flex-row"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
         >
           <div className="relative z-20 flex min-h-[340px] w-full flex-col justify-center bg-white px-7 py-10 lg:h-auto lg:w-[40%] lg:px-10 xl:px-12">
             <div className="relative z-10 w-full max-w-md">
@@ -132,7 +123,7 @@ export default function TechnologyShowcase() {
                   type="button"
                   onFocus={() => setActive(index)}
                   onClick={() => setActive(index)}
-                  className={`group relative flex w-full items-center gap-4 rounded-full border px-5 py-3.5 text-left transition-all duration-500 md:px-7 ${isActive ? "border-[#d7b66d] bg-[#d7b66d] text-black shadow-[0_12px_35px_rgba(143,116,64,.2)]" : "border-transparent bg-[#f5f3ee] text-black/48 hover:bg-[#eeebe3] hover:text-black"}`}
+                  className={`group relative flex w-full cursor-pointer items-center gap-4 rounded-full border px-5 py-3.5 text-left transition-all duration-500 md:px-7 ${isActive ? "border-[#d7b66d] bg-[#d7b66d] text-black shadow-[0_12px_35px_rgba(143,116,64,.2)]" : "border-transparent bg-[#f5f3ee] text-black/48 hover:bg-[#eeebe3] hover:text-black"}`}
                   aria-pressed={isActive}
                 >
                   <span className={`w-7 shrink-0 text-[10px] font-semibold tracking-[0.18em] ${isActive ? "text-black/65" : "text-black/30"}`}>
