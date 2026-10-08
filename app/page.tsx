@@ -471,7 +471,7 @@ export default function Home() {
           </div>
           <div className="border-t border-white/10 pt-6">
             <p className="text-gray-500 text-sm" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
-              Wszelkie prawa zastrzeżone © Glassiv Deco 2026
+              Wszelkie prawa zastrzeżone © Glassiv Deco 2026 | Projekt i realizacja: <a className="hover:underline trxt-bold text-white" href="https://www.godzien.pl" target="_blank" rel="noopener noreferrer">Piotr Godzień</a>
             </p>
           </div>
         </div>
